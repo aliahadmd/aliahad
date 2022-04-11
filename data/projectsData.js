@@ -19,7 +19,7 @@ const projectsData = [
     title: 'Food App Landing page',
     technology: '#CSS #VanillaJavaScript',
     description: `A landing page for a food app was made using vanilla JavaScript and CSS. `,
-    imgSrc: '/static/images/project3.PNG',
+    imgSrc: '/static/images/project2.PNG',
     href: 'https://foodapp-landingpage.netlify.app/',
     gref: 'https://github.com/iamaliahad/Food-App-landing-page',
   },
