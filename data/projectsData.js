@@ -10,10 +10,18 @@ const projectsData = [
   {
     title: 'A portfolio website',
     technology: '#CSS #VanillaJavaScript',
-    description: `A front-end portfolio design was created using vanilla JavaScript and CSS.`,
+    description: `A front-end portfolio design was made using vanilla JavaScript and CSS.`,
     imgSrc: '/static/images/project2.PNG',
     href: 'https://aliahad.netlify.app/',
     gref: 'https://github.com/iamaliahad/iamaliahad.github.io',
+  },
+  {
+    title: 'Food App Landing page',
+    technology: '#CSS #VanillaJavaScript',
+    description: `A landing page for a food app was made using vanilla JavaScript and CSS.`,
+    imgSrc: '/static/images/project3.PNG',
+    href: 'https://foodapp-landingpage.netlify.app/',
+    gref: 'https://github.com/iamaliahad/Food-App-landing-page',
   },
   
   
