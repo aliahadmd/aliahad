@@ -3,7 +3,7 @@ name: Ali Ahad
 avatar: /static/images/avatar.png
 occupation: Full-Stack Developer and SEO expart
 company: Yunnan University
-skill: 'HTML, CSS, JavaScript, #ReactJs NextJs, NodeJs, MongoDB, SQL, TailwindCSS, Python, C++'
+skill: 'HTML, CSS, JavaScript, ReactJs, NextJs, NodeJs, MongoDB, SQL, TailwindCSS, Python, C++, Figma, Camtasia, Canva, Photoshop'
 email: HelloAliahad@gmail.com
 twitter: https://twitter.com/iamaliahad
 linkedin: https://www.linkedin.com/iamaliahad
