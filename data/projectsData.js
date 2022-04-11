@@ -1,84 +1,21 @@
 const projectsData = [
   {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.commmm',
+    title: 'Portfolio Website',
+    technology: '#ReactJs #SCSS #Sanity.io',
+    description: `This is a portfolio website. It is built with ReactJS, SCSS and Sanity.io. It is hosted on Netlify. `,
+    imgSrc: '/static/images/project1.PNG',
+    href: 'https://ahadali.netlify.app/',
+    gref: 'https://github.com/iamaliahad/myPortfolio',
   },
   {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
+    title: 'A portfolio website',
+    technology: '#CSS #VanillaJavaScript',
+    description: `A front-end portfolio design was created using vanilla JavaScript and CSS.`,
+    imgSrc: '/static/images/project2.PNG',
+    href: 'https://aliahad.netlify.app/',
+    gref: 'https://github.com/iamaliahad/iamaliahad.github.io',
   },
-  {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
-  },
-  {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
-  },
-  {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
-  },
-  {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
-  },
-  {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
-  },
-  {
-    title: 'A Search Engine',
-    technology: '#next #tailwindcss #mongodb',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-    gref: 'https://www.google.com',
-  },
+  
   
 ]
 
