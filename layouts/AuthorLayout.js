@@ -9,7 +9,6 @@ export default function AuthorLayout({ children, frontMatter }) {
     <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
       <div className="divide-y">
-        
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center pt-8">
             <Image
@@ -17,7 +16,6 @@ export default function AuthorLayout({ children, frontMatter }) {
               alt="avatar"
               width="192px"
               height="192px"
-             
               className="h-48 w-48 rounded-full object-cover"
             />
             <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
@@ -30,9 +28,16 @@ export default function AuthorLayout({ children, frontMatter }) {
               <SocialIcon kind="twitter" href={twitter} />
             </div>
           </div>
-          <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">{children} <span>Skills: <span className='font-bold italic bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500'> {skill}</span> </span></div>
-          
-          
+          <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
+            {children}
+            <div className="rounded border-2 border-zinc-600 p-2">
+              Skills:{' '}
+              <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text font-bold italic text-transparent">
+                {' '}
+                {skill}
+              </span>{' '}
+            </div>
+          </div>
         </div>
       </div>
     </>
