@@ -1,12 +1,13 @@
 const siteMetadata = {
-  title: 'Ali Ahad || Portfolio website! || Full-Stack React Developer || Hire me!',
+  title: 'Ali Ahad || Portfolio website! || Full-Stack Developer || Hire me!',
   author: 'Ali Ahad',
   headerTitle: 'Ali Ahad',
-  description: 'I am a Full-Stack React Developer. I am a passionate about building beautiful and functional websites. Hire me for your next project!',
+  description:
+    'I am a Full-Stack Developer. I am a passionate about building beautiful and functional websites. Hire me for your next project!',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://aliahad.me',
-  siteRepo: 'aliahad.me',
+  siteUrl: 'https://aliahad.com',
+  siteRepo: 'aliahad.com',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -26,7 +27,7 @@ const siteMetadata = {
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
   },
- 
+
   comment: {
     // If you want to use a commenting system other than giscus you have to add it to the
     // content security policy in the `next.config.js` file.
