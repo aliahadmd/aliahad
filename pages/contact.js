@@ -27,7 +27,7 @@ export default function Projects() {
                 Feel free to contact me. Let's discussion to about your project, Startup and Idea.
                 😊{' '}
               </p>
-              <form action="#" className="space-y-8" data-netlify="true" name="contact">
+              <form className="space-y-8" name="contact" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label
@@ -38,7 +38,8 @@ export default function Projects() {
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    name="email"
+                    id="youremail"
                     className="dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                     placeholder="yourName@example.com"
                     required
@@ -53,7 +54,8 @@ export default function Projects() {
                   </label>
                   <input
                     type="text"
-                    id="subject"
+                    id="yoursubject"
+                    name="text"
                     className="dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                     placeholder="Let me know how I can help you"
                     required
@@ -67,7 +69,8 @@ export default function Projects() {
                     Your message
                   </label>
                   <textarea
-                    id="message"
+                    id="yourmessage"
+                    name="message"
                     rows="6"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                     placeholder="Leave a comment..."
