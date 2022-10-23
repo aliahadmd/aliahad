@@ -24,10 +24,15 @@ export default function Projects() {
               </h2>
               <p className="mb-8 text-center font-light text-gray-500 dark:text-gray-400 sm:text-xl lg:mb-16">
                 {' '}
-                Feel free to contact me. Let's discussion to about your project, Startup and Idea.
-                😊{' '}
+                Feel free to contact me. Let's discussion about your project, Startup and Idea. 😊{' '}
               </p>
-              <form className="space-y-8" name="contact" method="POST" data-netlify="true">
+              <form
+                className="space-y-8"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                action="/success"
+              >
                 <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label
