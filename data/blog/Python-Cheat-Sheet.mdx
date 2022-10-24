@@ -112,7 +112,7 @@ It results in a new string.
 
 Because the double quote is special, it
 denotes a string, if you want to use it in
-a string, you need to escape it with a "\"
+a string, you need to escape it with a `"\"`
 
 ```py
 speech = "She said: \"Hi\""
@@ -126,7 +126,7 @@ print(speech)
 You can insert a variable into a string
 using f-strings.
 The syntax is simple, just insert the variable
-in-between a set of curly braces {}.
+in-between a set of curly braces `{}`.
 
 ```py
 days = 365
@@ -138,14 +138,14 @@ in a year")
 
 ## Converting Data Types
 
-You can convert a variable from 1 data
+You can convert a variable from `1` data
 type to another.
 Converting to float:
-float()
+`float()`
 Converting to int:
-int()
+`int()`
 Converting to string:
-str()
+`str()`
 
 ```py
 n = 354
@@ -156,7 +156,7 @@ print(new_n) #result 354.0
 
 ## Checking Data Types
 
-You can use the type() function
+You can use the `type()` function
 to check what is the data type of a
 particular variable.
 
@@ -189,7 +189,7 @@ This is a convenient way to modify a variable.
 It takes the existing value in a variable
 and adds to it.
 You can also use any of the other
-mathematical operators e.g. -= or \*=
+mathematical operators e.g. `-= or \*=`
 
 ```py
 my_number = 4
@@ -202,8 +202,8 @@ my_number += 2
 
 Often you'll want to know what is the
 remainder after a division.
-e.g. 4 ÷ 2 = 2 with no remainder
-but 5 ÷ 2 = 2 with 1 remainder
+e.g. `4 ÷ 2 = 2` with no remainder
+but `5 ÷ 2 = 2` with `1` remainder
 The modulo does not give you the result
 of the division, just the remainder.
 It can be really helpful in certain situations,
@@ -212,5 +212,167 @@ e.g. figuring out if a number is odd or even.
 ```py
 5 % 2
 #result is 1
+
+```
+
+# E R R O R S
+
+## Syntax Error
+
+Syntax errors happen when your code
+does not make any sense to the computer.
+This can happen because you've misspelt
+something or there's too many brackets or
+a missing comma.
+
+```py
+print(12 + 4))
+File "<stdin>", line 1
+print(12 + 4))
+^
+SyntaxError: unmatched ')'
+
+
+```
+
+## Name Error
+
+This happens when there is a variable
+with a name that the computer
+does not recognise. It's usually because
+you've misspelt the name of a variable
+you created earlier.
+Note: variable names are case sensitive!
+
+```py
+my_number = 4
+my_Number + 2
+Traceback (most recent call
+last): File "<stdin>", line 1,
+NameError: name 'my_Number'
+is not defined
+
+```
+
+## Zero Division Error
+
+This happens when you try to divide by zero,
+This is something that is mathematically
+impossible so Python will also complain.
+
+```py
+5 % 0
+Traceback (most recent call
+last): File "<stdin>", line 1,
+ZeroDivisionError: integer
+division or modulo by zero
+
+```
+
+# F U N C T I O N S
+
+## Creating Functions
+
+This is the basic syntax for a function in
+Python. It allows you to give a set of
+instructions a name, so you can trigger it
+multiple times without having to re-write
+or copy-paste it. The contents of the function
+must be indented to signal that it's inside.
+
+```py
+def my_function():
+print("Hello")
+name = input("Your name:")
+print("Hello")
+
+
+```
+
+## Calling Functions
+
+You activate the function by calling it.
+This is simply done by writing the name of
+the function followed by a set of round
+brackets. This allows you to determine
+when to trigger the function and how
+many times.
+
+```py
+my_function()
+my_function()
+#The function my_function
+#will run twice.
+
+
+```
+
+## Functions with Inputs
+
+In addition to simple functions, you can
+give the function an input, this way, each time
+the function can do something different
+depending on the input. It makes your
+function more useful and re-usable.
+
+```py
+def add(n1, n2):
+print(n1 + n2)
+add(2, 3)
+
+
+```
+
+## Functions with Outputs
+
+In addition to inputs, a function can also have
+an output. The output value is proceeded by
+the keyword "return".
+This allows you to store the result from a
+function.
+
+```py
+def add(n1, n2):
+  return n1 + n2
+result = add(2, 3)
+
+```
+
+## Variable Scope
+
+Variables created inside a function are
+destroyed once the function has executed.
+The location (line of code) that you use
+a variable will determine its value.
+Here n is 2 but inside my_function() n is 3.
+So printing n inside and outside the function
+will determine its value.
+
+```py
+n = 2
+def my_function():
+  n = 3
+  print(n)
+print(n) #Prints 2
+my_function() #Prints 3
+
+```
+
+## Keyword Arguments
+
+When calling a function, you can provide
+a keyword argument or simply just the
+value.
+Using a keyword argument means that
+you don't have to follow any order
+when providing the inputs.
+
+```py
+def divide(n1, n2):
+  result = n1 / n2
+#Option 1:
+divide(10, 5)
+#Option 2:
+divide(n2=5, n1=10)
 
 ```
