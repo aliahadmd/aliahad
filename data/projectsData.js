@@ -1,5 +1,13 @@
 const projectsData = [
   {
+    title: 'Phone Ads Landing page',
+    technology: '#CSS #React #threejs #GSAP',
+    description: `A landing page for Phone launch. `,
+    imgSrc: '/static/images/p_phone.png',
+    href: 'https://landing-page-for-phone-sample-design-reactjs-gsap-three-js.vercel.app/',
+    gref: 'https://github.com/iamaliahad/Landing-page-for-phone-sample-design-reactjs-GSAP-threeJs',
+  },
+  {
     title: 'Portfolio Website',
     technology: '#ReactJs #SCSS #Sanity.io',
     description: `This is a portfolio website. It is built with ReactJS, SCSS and Sanity.io. It is hosted on Netlify. `,
@@ -23,8 +31,6 @@ const projectsData = [
     href: 'https://foodapp-landingpage.netlify.app/',
     gref: 'https://github.com/iamaliahad/Food-App-landing-page',
   },
-  
-  
 ]
 
 export default projectsData
