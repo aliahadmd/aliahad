@@ -8,7 +8,7 @@ images: ['/static/images/blog/productivity.png']
 authors: ['default']
 ---
 
-![Productivity: 256*128](/static/images/blog/productivity.png)
+![Productivity: 1200*600](/static/images/blog/productivity.png)
 
 🕖
 
