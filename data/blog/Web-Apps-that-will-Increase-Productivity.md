@@ -4,7 +4,7 @@ date: '2022-10-30'
 tags: ['webapp', 'productivity']
 draft: false
 summary: 'Popular websites that every software developer needs...'
-images: ['/static/gif/productivity.gif']
+images: ['/static/blog/productivity.png']
 authors: ['default']
 ---
 
