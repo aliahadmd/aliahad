@@ -4,9 +4,11 @@ date: '2022-10-30'
 tags: ['webapp', 'productivity']
 draft: false
 summary: 'Popular websites that every software developer needs...'
-images: ['/static/blog/productivity.png']
+images: ['/static/images/blog/productivity.png']
 authors: ['default']
 ---
+
+![Productivity: 256*128](/static/images/blog/productivity.png)
 
 🕖
 
