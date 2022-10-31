@@ -5,9 +5,9 @@ occupation: Software Engineer
 company: Freelancer
 skill: 'HTML, CSS, JavaScript, TypeScript, ReactJs, NodeJs, MongoDB, SQL, Python, C++, Figma'
 email: HelloAliahad@gmail.com
-twitter: https://twitter.com/aliahad22
+twitter: https://twitter.com/iamAliAhad
 linkedin: https://www.linkedin.com/iamaliahad
-github: https://github.com/aliahad1
+github: https://github.com/iamAliAhad
 ---
 
 I am **Ali Ahad**, Studying Computer Science with experience working across the **full-stack software development**.
