@@ -1,6 +1,6 @@
 ---
 name: Ali Ahad
-avatar: /static/images/avatar.png
+avatar: /static/images/avatar.jpg
 occupation: Software Engineer
 company: Freelancer
 skill: 'HTML, CSS, JavaScript, TypeScript, ReactJs, NodeJs, MongoDB, SQL, Python, C++, Figma'
