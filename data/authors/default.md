@@ -4,7 +4,7 @@ avatar: /static/images/avatar.jpg
 occupation: Software Engineer
 company: Freelancer
 skill: 'HTML, CSS, JavaScript, TypeScript, ReactJs, NodeJs, MongoDB, SQL, Python, C++, Figma'
-email: HelloAliahad@gmail.com
+email: hi@aliahad.com
 twitter: https://twitter.com/iamAliAhad
 linkedin: https://www.linkedin.com/iamaliahad
 github: https://github.com/iamAliAhad
