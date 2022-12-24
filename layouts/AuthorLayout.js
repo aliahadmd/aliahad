@@ -30,13 +30,13 @@ export default function AuthorLayout({ children, frontMatter }) {
           </div>
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
             {children}
-            <div className="rounded border-2 border-zinc-600 p-2">
+            {/* <div className="rounded border-2 border-zinc-600 p-2">
               Skills:{' '}
               <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text font-bold italic text-transparent">
                 {' '}
                 {skill}
               </span>{' '}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

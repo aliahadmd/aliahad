@@ -3,8 +3,6 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 
-
-
 import { getFileBySlug } from '@/lib/mdx'
 
 const DEFAULT_LAYOUT = 'AuthorLayout'
@@ -26,8 +24,6 @@ export default function Home({ posts, authorDetails }) {
         mdxSource={mdxSource}
         frontMatter={frontMatter}
       />
-
-    
     </>
   )
 }
