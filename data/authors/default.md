@@ -8,6 +8,7 @@ email: HelloAliahad@gmail.com
 twitter: https://twitter.com/iamAliAhad
 linkedin: https://www.linkedin.com/iamaliahad
 github: https://github.com/iamAliAhad
+lab: https://lab.aliahad.com
 ---
 
 I am **Ali Ahad**, Studying Computer Science with experience working across the **full-stack software development**.
