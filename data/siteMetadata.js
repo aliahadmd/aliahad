@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'helloAliahad@gmail.com',
+  email: 'hi@aliahad.com',
   github: 'https://github.com/iamaliahad',
   twitter: 'https://twitter.com/iamaliahad',
   facebook: 'https://facebook.com/ahadaliadnan',
