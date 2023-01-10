@@ -1,6 +1,6 @@
 ---
 title: 'How to learn Machine Learning step by step'
-date: '2022-10-24'
+date: '2023-10-1'
 tags: ['python', 'ml', 'tensorflowpy', 'scikit-learn']
 draft: false
 summary: 'How to learn Machine Learning step by step'
