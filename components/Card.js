@@ -3,7 +3,7 @@ import Link from './Link'
 
 const Card = ({ title, technology, description, imgSrc, href, gref }) => {
   return (
-    <div className="md p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
+    <div className="md p-4 md:w-full">
       <div
         className={`${
           imgSrc && 'h-full'

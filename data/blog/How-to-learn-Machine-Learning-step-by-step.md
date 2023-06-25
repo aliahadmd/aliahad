@@ -6,10 +6,6 @@ draft: false
 summary: 'How to learn Machine Learning step by step'
 ---
 
-
-
-
-
 # Introduction:
 
 Machine learning is a rapidly growing field that is transforming many industries. It is a key tool for solving complex problems in areas such as finance, healthcare, and education. It can help you build intelligent systems that can make decisions and predictions on your behalf. This can save you time and effort, and allow you to focus on more important tasks. Machine learning is a highly sought-after skill in the job market, and can lead to lucrative career opportunities. It can be both challenging and rewarding to learn. It allows you to delve into the inner workings of complex systems and gain a deeper understanding of how they function.
@@ -39,7 +35,7 @@ I recommend Python. Why? Because its popular, easy to learn and future-ready
 
 With Python, you can switch domains easily. Python offers popular frameworks like **Django and Flask for backend development**, **Tkinter for GUI development**, **Pygames for Game development**.
 
-If you go with Python, you must learn **sklearn** ( [https://scikit-learn.org/](https://scikit-learn.org/) ) for Machine Learning. Sklearn is a modern machine learning library written in Python.  There are another great alternative such as **TensorFlow** ([https://www.tensorflow.org/](https://www.tensorflow.org/) ) and **PyTorch**([https://pytorch.org/](https://pytorch.org/)).
+If you go with Python, you must learn **sklearn** ( [https://scikit-learn.org/](https://scikit-learn.org/) ) for Machine Learning. Sklearn is a modern machine learning library written in Python. There are another great alternative such as **TensorFlow** ([https://www.tensorflow.org/](https://www.tensorflow.org/) ) and **PyTorch**([https://pytorch.org/](https://pytorch.org/)).
 
 The best thing about sklearn is that most of the Machine learning algorithms are written for you already. It has a lot of useful classes for preprocessing your data for further analysis. You should also look into the Tensorflow module, which can help you build a neural network without many efforts!
 

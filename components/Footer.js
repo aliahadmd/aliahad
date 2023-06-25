@@ -11,9 +11,9 @@ export default function Footer() {
           <div>{` • `}</div>
           <Link href="/">{siteMetadata.author}</Link>
         </div>
-        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
+        {/* <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           <Link href="https://twitter.com/iamaliahad">@iamaliahad</Link>
-        </div>
+        </div> */}
       </div>
     </footer>
   )
