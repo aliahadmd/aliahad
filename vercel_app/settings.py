@@ -87,11 +87,17 @@ WSGI_APPLICATION = "vercel_app.wsgi.app"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "verceldb",  # Replace 'mydatabase' with the name of your PostgreSQL database
-        "USER": "default",  # Replace 'myuser' with your PostgreSQL username
-        "PASSWORD": "LS6yTPwVOra9",  # Replace 'mypassword' with your PostgreSQL password
-        "HOST": "ep-autumn-fog-a4nesd5t-pooler.us-east-1.aws.neon.tech",  # Or the hostname where your PostgreSQL server is running
+        "ENGINE": os.getenv("ENGINE"),
+        "NAME": os.getenv(
+            "NAME"
+        ),  # Replace 'mydatabase' with the name of your PostgreSQL database
+        "USER": os.getenv("USER"),  # Replace 'myuser' with your PostgreSQL username
+        "PASSWORD": os.getenv(
+            "PASSWORD"
+        ),  # Replace 'mypassword' with your PostgreSQL password
+        "HOST": os.getenv(
+            "HOST"
+        ),  # Or the hostname where your PostgreSQL server is running
         "PORT": "",  # Or the port number where your PostgreSQL server is listening (usually empty)
     }
 }
