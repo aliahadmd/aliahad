@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+# cloudinary
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -130,8 +135,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
 # media
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Cloudinary configuration
+
+cloudinary.config(
+    cloud_name="aliahad",
+    api_key="884424499941243",
+    api_secret="h9w-qyKtkpEEgap9CEqjJCPrYl4",
+)
 
 
 # Default primary key field type
