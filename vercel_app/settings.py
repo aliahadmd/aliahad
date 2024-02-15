@@ -14,9 +14,9 @@ import os
 from pathlib import Path
 
 # cloudinary
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+# debug true/false with dotenv
+DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "example",
+    "cloudinary",
 ]
 
 MIDDLEWARE = [
@@ -137,14 +140,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
 # MEDIA_URL = "/media/"
 # MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-# Cloudinary configuration
-
-cloudinary.config(
-    cloud_name="aliahad",
-    api_key="884424499941243",
-    api_secret="h9w-qyKtkpEEgap9CEqjJCPrYl4",
-)
 
 
 # Default primary key field type
