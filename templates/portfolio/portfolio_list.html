@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block title %}
+    Portfolio list
+{% endblock title %}
+{% block content %}
+    <div class= "blog_container">
+        <h1>Portfolio List</h1>
+        {% if portfolios %}
+            <ul>
+                {% for port in portfolios %}
+                    <li>
+                        <h3>{{ port.name }}</h3>
+                        <p>{{ port.description }}</p>
+                        <a href="{{ port.link }}">View</a>
+                        <a href="{{ port.github }}">Code</a>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no Portfolio.</p>
+        {% endif %}
+    </div>
+{% endblock %}
