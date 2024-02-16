@@ -251,6 +251,10 @@ pre {
     margin: 1rem 0;
     max-width: var(--width-card-wide);
     padding: 1rem 0;
+    background-color: #e4d9c2;
+    padding: 10px;
+    border: 1px solid #ffeecd;
+    border-radius: 1px;
 }
 
 pre code,
