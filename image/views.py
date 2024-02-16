@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .forms import ImageForm
+from .forms import imageForm
 from .models import Image
 
 
@@ -9,12 +9,12 @@ def index(request):
 
 def upload_image(request):
     if request.method == "POST":
-        form = ImageForm(request.POST, request.FILES)
+        form = imageForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("image_gallery:view_images")
     else:
-        form = ImageForm()
+        form = imageForm()
     return render(request, "upload_image.html", {"form": form})
 
 

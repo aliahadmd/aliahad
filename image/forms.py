@@ -3,7 +3,7 @@ from .models import Image
 from cloudinary.forms import CloudinaryFileField
 
 
-class ImageForm(forms.ModelForm):
+class imageForm(forms.ModelForm):
     image = CloudinaryFileField()
 
     class Meta:

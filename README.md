@@ -21,11 +21,11 @@ when deploy to github then remove or comments psycopg2 and use psycopg2-binary
 
 
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fimages%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
 
 # Django + Vercel
 
-This example shows how to use Django 4 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+This image shows how to use Django 4 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
 
 ## Demo
 
@@ -33,41 +33,41 @@ https://django-template.vercel.app/
 
 ## How it Works
 
-Our Django application, `example` is configured as an installed application in `vercel_app/settings.py`:
+Our Django application, `image` is configured as an installed application in `core/settings.py`:
 
 ```python
-# vercel_app/settings.py
+# core/settings.py
 INSTALLED_APPS = [
     # ...
-    'example',
+    'image',
 ]
 ```
 
 We allow "\*.vercel.app" subdomains in `ALLOWED_HOSTS`, in addition to 127.0.0.1:
 
 ```python
-# vercel_app/settings.py
+# core/settings.py
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 ```
 
 The `wsgi` module must use a public variable named `app` to expose the WSGI application:
 
 ```python
-# vercel_app/wsgi.py
+# core/wsgi.py
 app = get_wsgi_application()
 ```
 
-The corresponding `WSGI_APPLICATION` setting is configured to use the `app` variable from the `vercel_app.wsgi` module:
+The corresponding `WSGI_APPLICATION` setting is configured to use the `app` variable from the `core.wsgi` module:
 
 ```python
-# vercel_app/settings.py
-WSGI_APPLICATION = 'vercel_app.wsgi.app'
+# core/settings.py
+WSGI_APPLICATION = 'core.wsgi.app'
 ```
 
-There is a single view which renders the current time in `example/views.py`:
+There is a single view which renders the current time in `image/views.py`:
 
 ```python
-# example/views.py
+# image/views.py
 from datetime import datetime
 
 from django.http import HttpResponse
@@ -86,13 +86,13 @@ def index(request):
     return HttpResponse(html)
 ```
 
-This view is exposed a URL through `example/urls.py`:
+This view is exposed a URL through `image/urls.py`:
 
 ```python
-# example/urls.py
+# image/urls.py
 from django.urls import path
 
-from example.views import index
+from image.views import index
 
 
 urlpatterns = [
@@ -100,19 +100,19 @@ urlpatterns = [
 ]
 ```
 
-Finally, it's made accessible to the Django server inside `vercel_app/urls.py`:
+Finally, it's made accessible to the Django server inside `core/urls.py`:
 
 ```python
-# vercel_app/urls.py
+# core/urls.py
 from django.urls import path, include
 
 urlpatterns = [
     ...
-    path('', include('example.urls')),
+    path('', include('image.urls')),
 ]
 ```
 
-This example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
+This image uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
 
 ## Running Locally
 
@@ -124,6 +124,6 @@ Your Django application is now available at `http://localhost:8000`.
 
 ## One-Click Deploy
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+Deploy the image using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-images):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fimages%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)

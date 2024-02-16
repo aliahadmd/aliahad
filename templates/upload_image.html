@@ -1,6 +1,6 @@
 {% extends "_base.html" %}
 {% block content %}
-    <h2>Upload Image</h2>
+    <h2>Upload image</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

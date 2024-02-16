@@ -1,9 +1,9 @@
 {% extends "_base.html" %}
 {% block content %}
-    <h2>View Images</h2>
+    <h2>View images</h2>
     {% for image in images %}
         {% comment %} <img src="{{ image.image.url }}" alt="{{ image.title }}"> {% endcomment %}
         {% load cloudinary %}
-        {% cloudinary image.image quality='auto' width=200 height=200 crop='pad' background='gen_fill:ignore-foreground_true' %}
+        {% cloudinary image.image quimagety='auto' width=200 height=200 crop='pad' background='gen_fill:ignore-foreground_true' %}
     {% endfor %}
 {% endblock content %}
