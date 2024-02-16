@@ -115,6 +115,15 @@ DATABASES = {
     }
 }
 
+# django cache feature
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",  # Can be any unique string
+    }
+}
+
 
 # Password vimagedation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-vimagedators
