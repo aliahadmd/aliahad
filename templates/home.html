@@ -1,8 +1,50 @@
 {% extends "_base.html" %}
+{% load static %}
 {% block content %}
     <div class= "blog_container">
         <h1>Md Ahad Ali</h1>
         <i>Computer Science and Technology Engineer.</i>
+        <div class="icon_container">
+            <a href="mailto:ali@aliahad.com">
+                <img src="{% static "icons/mail.svg" %}" alt="mail">
+            </a>
+            <a href="https://github.com/aliahadmd" target="_blank">
+                <img src="{% static "icons/github.svg" %}" alt="github">
+            </a>
+            <a href="https://twitter.com/aliahad_" target="_blank">
+                <img src="{% static "icons/x.svg" %}" alt="x">
+            </a>
+        </div>
         <hr>
+        <div class="container">
+            <h1>About Me</h1>
+            <p>
+                Hey there! I'm Md Ahad Ali, a passionate computer science enthusiast hailing from Bangladesh. With a Bachelor's degree in Computer Science and Technology from Yunnan University in China, I've honed my skills and expertise in various domains of technology.
+            </p>
+            <h2>Experience:</h2>
+            <p>
+                During my time as a Teaching Assistant at Yunnan University, I had the opportunity to foster the next generation of tech talent. I conducted engaging laboratory sessions for the course "Computer Organization and Architecture" and collaborated with both students and teachers to ensure an enriching learning experience.
+            </p>
+            <h2>Technical Skills:</h2>
+            <p>
+                My proficiency spans across a wide array of languages including JavaScript & TypeScript, Python, C/C++, and more. I'm well-versed in popular frameworks and libraries such as React.js, Django, Express.js, and TensorFlow. Additionally, I'm experienced in utilizing tools like Docker, Kubernetes, AWS, and Google Cloud to deploy scalable and efficient solutions.
+            </p>
+            <h2>Passion & Dedication:</h2>
+            <p>
+                Driven by a relentless passion for technology, I continuously strive to expand my knowledge and stay updated with the latest advancements in the field. Whether it's developing innovative applications, analyzing complex datasets, or architecting robust systems, I approach every challenge with creativity and dedication.
+            </p>
+            <h2>Collaboration & Innovation:</h2>
+            <p>
+                I firmly believe in the power of collaboration and teamwork. My experience working in diverse environments has taught me the value of communication, adaptability, and collective problem-solving. I'm always eager to collaborate with like-minded individuals and contribute to projects that push the boundaries of innovation.
+            </p>
+            <h2>Beyond Tech:</h2>
+            <p>
+                Outside the realm of technology, I enjoy exploring diverse interests ranging from literature to travel. I find inspiration in discovering new cultures, cuisines, and perspectives, which ultimately enriches my creativity and worldview.
+            </p>
+            <h2>Let's Connect:</h2>
+            <p>
+                Whether you're looking to embark on an exciting project, seeking technical consultation, or simply want to connect with a fellow enthusiast, I'd love to hear from you! Feel free to reach out via email at <a href="mailto:ali@aliahad.com">ali@aliahad.com</a> or connect with me on <a href="https://www.linkedin.com/aliahadmd">LinkedIn</a>.
+            </p>
+        </div>
     </div>
 {% endblock content %}

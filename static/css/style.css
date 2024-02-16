@@ -18,3 +18,14 @@
     padding-right: 5px;
     font-style: italic;
 }
+
+.icon_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon_container img {
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+}
