@@ -1,15 +1,19 @@
 {% extends '_base.html' %}
 {% block content %}
-    <h1>Blog List</h1>
-    {% if blogs %}
-        <ul>
-            {% for blog in blogs %}
-                <li>
-                    <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no blogs.</p>
-    {% endif %}
+    <div class= "blog_container">
+        <h1>Blog List</h1>
+        {% if blogs %}
+            <ul>
+                {% for blog in blogs %}
+                    <li>
+                        <a href="{{ blog.slug }}">{{ blog.title }}</a>
+                        <p>{{ blog.created_at |date:"Y-m-d" }}</p>
+                        <hr>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no blogs.</p>
+        {% endif %}
+    </div>
 {% endblock %}
