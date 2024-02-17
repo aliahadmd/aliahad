@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{% static "css/mvp.css" %}">
         <link rel="stylesheet" href="{% static "css/style.css" %}">
     </head>
-    <body>
+    <body id="content">
         <div>
             <div class= "blog_container">{% include "components/main_nav.html" %}</div>
             <hr>
@@ -23,5 +23,6 @@
             <div class= "blog_container">{% include "components/main_footer.html" %}</div>
         </div>
         <script src="{% static "js/script.js" %}"></script>
+        <script src="{% static "js/routing.js" %}"></script>
     </body>
 </html>
