@@ -3,7 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to fetch and update content
     async function fetchContent(url) {
         try {
-            const response = await fetch(url);
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), 5000); // Timeout after 5 seconds
+
+            const response = await fetch(url, { signal: controller.signal });
+            clearTimeout(id); // Clear the timeout if the fetch completes before the timeout
+
             const html = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
