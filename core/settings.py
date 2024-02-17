@@ -101,21 +101,16 @@ WSGI_APPLICATION = "core.wsgi.app"
 DATABASES = {
     "default": {
         "ENGINE": os.getenv("ENGINE"),
-        "NAME": os.getenv(
-            "NAME"
-        ),  # Replace 'mydatabase' with the name of your PostgreSQL database
-        "USER": os.getenv("USER"),  # Replace 'myuser' with your PostgreSQL username
-        "PASSWORD": os.getenv(
-            "PASSWORD"
-        ),  # Replace 'mypassword' with your PostgreSQL password
-        "HOST": os.getenv(
-            "HOST"
-        ),  # Or the hostname where your PostgreSQL server is running
-        "PORT": os.getenv(
-            "PORT"
-        ),  # Or the port number where your PostgreSQL server is listening (usually empty)
+        "NAME": os.getenv("NAME"),
+        "USER": os.getenv("USER"),
+        "PASSWORD": os.getenv("PASSWORD"),
+        "HOST": os.getenv("HOST"),
+        "PORT": os.getenv("PORT"),
+        "OPTIONS": {"sslmode": os.getenv("OPTIONS")},
+        "DISABLE_SERVER_SIDE_CURSORS": os.getenv("DISABLE_SERVER_SIDE_CURSORS"),
     }
 }
+
 
 # django cache feature
 
