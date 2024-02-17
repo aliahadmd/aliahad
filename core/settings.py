@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # debug true/false with dotenv ->  boolean
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = [
@@ -118,12 +118,12 @@ DATABASES = {
 
 # django cache feature
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-#         "LOCATION": "unique-snowflake",  # Can be any unique string
-#     }
-# }
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",  # Can be any unique string
+    }
+}
 
 
 # Password vimagedation
