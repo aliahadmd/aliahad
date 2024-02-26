@@ -14,8 +14,9 @@ class LessonAdmin(SummernoteModelAdmin):
 
 class CategoryAdmin(SummernoteModelAdmin):
     summernote_fields = ("description",)
-    list_display = ("name", "slug")
+    list_display = ("name", "slug", "updated_at")
     prepopulated_fields = {"slug": ("name",)}
+    
 
 
 # Register Lesson and Category models with their respective admins

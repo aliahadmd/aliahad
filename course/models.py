@@ -8,6 +8,8 @@ class Category(models.Model):
     description = models.TextField(blank=True)
     image = models.FileField(upload_to="category_image/", blank=True)
     slug = models.SlugField(unique=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True)
+    price = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
         return self.name

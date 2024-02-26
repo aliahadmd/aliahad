@@ -15,5 +15,16 @@
         <li>
             <a href="{% url "course:category_list" %}">Course</a>
         </li>
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url "auth:profile" %}">Profile</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url "auth:login" %}">Login</a>
+                <span>/</span>
+                <a href="{% url "auth:register" %}">Register</a>
+            </li>
+        {% endif %}
     </ul>
 </nav>

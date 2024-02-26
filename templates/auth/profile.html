@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block content %}
+    <div class= "blog_container">
+        <h2>Profile</h2>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <!-- Add more fields as needed -->
+        <p>
+            <a href="{% url 'auth:logout' %}">Logout</a>
+        </p>
+    </div>
+{% endblock content %}

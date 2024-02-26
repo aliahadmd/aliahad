@@ -22,8 +22,7 @@
                 {% endif %}
             </div>
             <h2>{{ lesson.title }}</h2>
-            <p>{{ lesson.description }}</p>
-            <p>{{ lesson.video }}</p>
+            <div> {{ lesson.description | safe }}</div>
         </div>
     </div>
 {% endblock content %}
