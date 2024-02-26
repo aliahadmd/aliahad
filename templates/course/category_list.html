@@ -1,0 +1,28 @@
+<!-- category_detail.html -->
+{% extends "_base.html" %}
+{% block content %}
+    <div class="blog_container">
+        {% for category in categories %}
+            <section id="section-1">
+                <header>
+                    <h2>Section Heading</h2>
+                    <p>Section Subheading</p>
+                </header>
+                <aside>
+                    {% if category.image %}
+                        <img src="{{ category.get_image_url }}"
+                             alt="image"
+                             class="category_list_img">
+                    {% else %}
+                        No image available
+                    {% endif %}
+                    <span class="badge">Free</span>
+                    <span class="date">Updated at: 2/21/2018</span>
+                    <h1>{{ category.name }}</h1>
+                    <p>{{ category.description }}</p>
+                    <a href="{% url 'course:category_detail' category_slug=category.slug %}">show more</a>
+                </aside>
+            </section>
+        {% endfor %}
+    </div>
+{% endblock content %}

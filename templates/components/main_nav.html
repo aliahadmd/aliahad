@@ -1,5 +1,8 @@
-<nav>
-    <ul>
+<nav class="navbar">
+    <div class="navbar-toggle" id="navbarToggle">
+        <div class="toggle-icon"></div>
+    </div>
+    <ul class="navbar-menu" id="navbarMenu">
         <li>
             <a href="{% url "home" %}">Home</a>
         </li>
@@ -10,7 +13,7 @@
             <a href="{% url "portfolio:portfolio_list" %}">Portfolio</a>
         </li>
         <li>
-            <a href="{% url "course:course_intro" %}">Course</a>
+            <a href="{% url "course:category_list" %}">Course</a>
         </li>
     </ul>
 </nav>

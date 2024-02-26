@@ -1,0 +1,15 @@
+<!-- category_detail.html -->
+{% extends "_base.html" %}
+{% block content %}
+    <div class="blog_container">
+        <h1>{{ category.name }}</h1>
+        <ul>
+            {% for lesson in lessons %}
+                <li>
+                    <a href="{% url 'course:lesson_detail' lesson_slug=lesson.slug category_slug=category.slug %}">{{ lesson.title }}</a>
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

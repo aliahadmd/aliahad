@@ -1,7 +1,7 @@
 <ul>
     {% for lesson in lesson_list %}
         <li>
-            <a href="{% url 'course:lesson_detail' slug=lesson.slug %}">{{ lesson.title }}</a>
+            <a href="{% url 'course:lesson_detail' lesson_slug=lesson.slug category_slug=category.slug %}">{{ lesson.title }}</a>
         </li>
         <hr>
     {% endfor %}

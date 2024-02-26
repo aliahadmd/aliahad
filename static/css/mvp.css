@@ -21,7 +21,7 @@
     --justify-important: center;
     --justify-normal: left;
     --line-height: 1.5;
-    --width-card: 285px;
+    --width-card: 320px;
     --width-card-medium: 460px;
     --width-card-wide: 800px;
     --width-content: 1080px;
@@ -540,6 +540,3 @@ blockquote footer {
     background-color: rgb(202, 202, 232);
     border-radius: 10px;
 }
-
-
-

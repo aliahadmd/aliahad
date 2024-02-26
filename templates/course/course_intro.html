@@ -1,9 +1,0 @@
-{% extends "_base.html" %}
-{% block content %}
-    <div class="blog_container">
-        <h1>All Courses</h1>
-        {% for lesson in lesson_list %}
-            <a href="{% url 'course:lesson_detail' slug=lesson.slug %}">{{ lesson.title }}</a>
-        {% endfor %}
-    </div>
-{% endblock content %}

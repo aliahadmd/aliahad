@@ -3,8 +3,11 @@ from . import views
 
 app_name = "course"
 urlpatterns = [
-    path("", views.course_intro, name="course_intro"),
+    path("", views.category_list, name="category_list"),
+    path("<slug:category_slug>/", views.category_detail, name="category_detail"),
     path(
-        "lesson/<slug:slug>/", views.lesson_detail, name="lesson_detail"
-    ),  # Add this line
+        "<slug:category_slug>/<slug:lesson_slug>/",
+        views.lesson_detail,
+        name="lesson_detail",
+    ),
 ]
