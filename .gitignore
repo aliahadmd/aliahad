@@ -16,3 +16,6 @@ venv.bak/
 
 .env
 /.env
+secret.txt
+
+/secret.txt

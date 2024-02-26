@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+{% block title %}
+    Course details list
+{% endblock title %}
+{% block content %}
+    <style>
+        /* Custom CSS styles */
+        .blog_container_course {
+            display: flex; /* Apply flexbox */
+        }
+        .course_container_list {
+            /* Add your styles here */
+            margin-right: 10px; /* Add margin for spacing */
+            margin-left: 10px; /* Add margin for spacing */
+            padding: 10px; /* Add padding for spacing */
+            padding: 10px; /* Add padding for spacing */
+            border-right: 1px solid #e9e9e9; /* Add vertical line */
+            flex: 0 1 20%; /* Set flex-grow to 0, flex-shrink to 1, and flex-basis to 20% */
+            max-width: 20%; /* Set maximum width */
+        }
+        .course_container_list:last-child {
+            border-right: none; /* Remove border from the last element */
+        }
+        /* Add more custom styles as needed */
+    </style>
+    <div class="blog_container_course">
+        <div class="course_container_list">{% include "course/base_lesson.html" %}</div>
+        <div class="course_container_list">
+            <div>
+                {% if lesson.video %}
+                    <video id="my-video"
+                           class="video-js"
+                           controls
+                           preload="auto"
+                           width="854"
+                           height="480"
+                           data-setup="{}">
+                        <source src="{{ lesson.get_video_url }}" type="video/mp4" />
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a
+                            web browser that
+                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                {% else %}
+                    No video available
+                {% endif %}
+            </div>
+            <h2>{{ lesson.title }}</h2>
+            <p>{{ lesson.description }}</p>
+            <p>{{ lesson.video }}</p>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,8 @@
+<ul>
+    {% for lesson in lesson_list %}
+        <li>
+            <a href="{% url 'course:lesson_detail' slug=lesson.slug %}">{{ lesson.title }}</a>
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
