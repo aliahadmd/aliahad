@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 
 from .models import Lesson, Category
@@ -9,12 +10,14 @@ def category_list(request):
     return render(request, "course/category_list.html", {"categories": categories})
 
 
+@login_required
 def lesson_view(request):
     lesson_list = Lesson.objects.all()
 
     return render(request, "course/base_lesson.html", {"lesson_list": lesson_list})
 
 
+@login_required
 def lesson_detail(request, lesson_slug, category_slug):
     lesson = get_object_or_404(Lesson, slug=lesson_slug)
     category = Category.objects.get(slug=category_slug)
@@ -32,6 +35,7 @@ def lesson_detail(request, lesson_slug, category_slug):
     )
 
 
+@login_required
 def category_detail(request, category_slug):
     category = Category.objects.get(slug=category_slug)
     lessons = Lesson.objects.filter(categories=category)
