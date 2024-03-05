@@ -8,7 +8,7 @@ cloudinary==1.38.0
 colorama==0.4.6
 crispy-bootstrap5==2024.2
 cssbeautifier==1.15.0
-Django==4.2.10
+Django==5.0.3
 django-crispy-forms==2.1
 django-storages==1.14.2
 django-summernote==0.8.20.0

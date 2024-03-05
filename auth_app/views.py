@@ -12,10 +12,8 @@ from django.contrib.auth.tokens import default_token_generator
 from .forms import EmailVerificationForm
 from django.contrib.auth.models import User
 from .forms import SignUpForm
-from django.views.decorators.cache import cache_page
 
 
-@cache_page(7200)
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -30,7 +28,6 @@ def login_view(request):
     return render(request, "auth/login.html", {"form": form})
 
 
-@cache_page(7200)
 def register_view(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
@@ -44,19 +41,16 @@ def register_view(request):
     return render(request, "auth/register.html", {"form": form})
 
 
-@cache_page(7200)
 def logout_view(request):
     logout(request)
     return redirect("home")
 
 
 @login_required
-@cache_page(7200)
 def profile_view(request):
     return render(request, "auth/profile.html")
 
 
-@cache_page(7200)
 def email_verification_sent_view(request):
     user = request.user
     current_site = get_current_site(request)
@@ -75,7 +69,6 @@ def email_verification_sent_view(request):
     return render(request, "auth/email_verification_sent.html")
 
 
-@cache_page(7200)
 def email_verification_view(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
