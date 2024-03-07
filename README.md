@@ -7,6 +7,14 @@ when deploy to github then remove or comments psycopg2 and use psycopg2-binary
 https://andybrewer.github.io/mvp/
 
 
+# server
+
+`pm2 start ecosystem.config.js`
+`pm2 restart ecosystem.config.js`
+`pm2 stop ecosystem.config.js`
+`pm2 status`
+
+
 
 
 
