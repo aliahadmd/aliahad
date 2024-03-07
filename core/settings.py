@@ -39,6 +39,7 @@ ALLOWED_HOSTS = [
     "aliahad.com",
     ".aliahad.com",
     "0.0.0.0",
+    "192.168.0.104",
 ]
 
 
