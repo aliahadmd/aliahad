@@ -21,3 +21,5 @@ secret.txt
 /secret.txt
 .env.prod
 /.env.prod
+staticfiles
+/staticfiles

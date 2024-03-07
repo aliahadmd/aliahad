@@ -34,13 +34,7 @@ SECRET_KEY = "django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "aliahad.com",
-    ".aliahad.com",
-    "0.0.0.0",
-    "192.168.0.104",
-]
+ALLOWED_HOSTS = ["aliahad.com", ".aliahad.com", "aa.local", "www.aliahad.com", "localhost", ]
 
 
 # Application definition
@@ -103,7 +97,19 @@ WSGI_APPLICATION = "core.wsgi.app"
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
 
-DATABASES = { "default": { "ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3"), } }
+
+# DATABASES = { "default": { "ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3"), } }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
 
 # Password vimagedation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-vimagedators
@@ -140,15 +146,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 
-STATIC_URL = "static/"
-# Define the directory where your static files are located
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
-# Define the directory where static files will be collected to
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 # media
 
 # MEDIA_URL = "/media/"
