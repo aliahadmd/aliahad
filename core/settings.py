@@ -36,10 +36,9 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    ".vercel.app",
     "aliahad.com",
-    "aliahad.vercel.app",
     ".aliahad.com",
+    "0.0.0.0",
 ]
 
 
@@ -102,19 +101,8 @@ WSGI_APPLICATION = "core.wsgi.app"
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
-DATABASES = {
-    "default": {
-        "ENGINE": os.getenv("ENGINE"),
-        "NAME": os.getenv("NAME"),
-        "USER": os.getenv("USER"),
-        "PASSWORD": os.getenv("PASSWORD"),
-        "HOST": os.getenv("HOST"),
-        "PORT": os.getenv("PORT"),
-        "OPTIONS": {"sslmode": os.getenv("OPTIONS")},
-        "DISABLE_SERVER_SIDE_CURSORS": os.getenv("DISABLE_SERVER_SIDE_CURSORS"),
-    }
-}
 
+DATABASES = { "default": { "ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3"), } }
 
 # Password vimagedation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-vimagedators
@@ -152,8 +140,13 @@ USE_TZ = True
 
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
+# Define the directory where your static files are located
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Define the directory where static files will be collected to
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # media
 

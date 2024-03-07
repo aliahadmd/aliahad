@@ -19,6 +19,8 @@
             </a>
         </div>
         <hr>
+        {% if home %}
         <div class="container">{{ home.content|safe }}</div>
+        {% endif %}
     </div>
 {% endblock content %}
