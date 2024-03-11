@@ -34,7 +34,7 @@ SECRET_KEY = "django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
 
-ALLOWED_HOSTS = ["aliahad.com", ".aliahad.com", "aa.local", "www.aliahad.com", "localhost", ]
+ALLOWED_HOSTS = ["aliahad.com", "*.aliahad.com", "aa.local", "www.aliahad.com", "localhost", "127.0.0.1", "0.0.0.0"]
 
 
 # Application definition
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -67,6 +68,21 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+
+CORS_ORIGIN_WHITELIST = (
+    'https://www.aliahad.com',
+    'https://aliahad.com',
+    'http://0.0.0.0:8085',
+)
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.aliahad.com',
+    'https://aliahad.com',
+    'http://0.0.0.0:8085',
+]
+
+
 
 ROOT_URLCONF = "core.urls"
 
@@ -185,3 +201,7 @@ CACHES = {
         "LOCATION": "unique-snowflake",  # Can be any unique string
     }
 }
+
+
+
+
