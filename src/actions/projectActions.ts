@@ -21,8 +21,8 @@ export async function createProject(formData: FormData) {
     },
   });
 
-  revalidatePath("/portfolio");
-  redirect("/portfolio");
+  revalidatePath("/dashboard/portfolio");
+  redirect("/dashboard/portfolio");
 }
 
 export async function updateProject(formData: FormData) {
@@ -44,8 +44,8 @@ export async function updateProject(formData: FormData) {
     },
   });
 
-  revalidatePath("/portfolio");
-  redirect("/portfolio");
+  revalidatePath("/dashboard/portfolio");
+  redirect("/dashboard/portfolio");
 }
 
 export async function deleteProject(formData: FormData) {
@@ -55,5 +55,5 @@ export async function deleteProject(formData: FormData) {
     where: { id: parseInt(id) },
   });
 
-  revalidatePath("/portfolio");
+  revalidatePath("/dashboard/portfolio");
 }
