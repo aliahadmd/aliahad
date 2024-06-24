@@ -6,5 +6,5 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard", "/dashboard/create-post", "/dashboard/posts"],
+  matcher: ["/dashboard/:path*"],
 };
