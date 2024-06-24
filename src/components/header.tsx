@@ -13,6 +13,10 @@ const navLinks =[
         href:"/posts",
         label: "Posts",
     },
+    {
+        href:"/portfolio",
+        label: "Portfolio",
+    },
 ];
 
 

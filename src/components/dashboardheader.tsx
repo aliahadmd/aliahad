@@ -13,6 +13,10 @@ const navLinks = [
     href: "/dashboard/create-post",
     label: "Create Post",
   },
+  {
+    href: "/dashboard/portfolio",
+    label: "Portfolio",
+  },
 ];
 
 const DashboardHeader = () => {
