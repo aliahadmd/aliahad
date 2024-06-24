@@ -1,7 +1,6 @@
 import prisma from "@/lib/db";
-import Link from "next/link";
 import Image from "next/image";
-import { deleteProject } from "../actions/projectActions";
+
 
 export default async function ProjectList() {
   const projects = await prisma.project.findMany();
