@@ -192,7 +192,7 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
           alt={alt || ""}
           width={600}
           height={400}
-          className="mx-auto my-4 rounded-lg shadow-md"
+          className="mx-auto my-4 rounded-lg"
         />
       );
     }
