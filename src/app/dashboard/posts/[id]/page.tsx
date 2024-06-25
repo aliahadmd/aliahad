@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -9,9 +8,11 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import dynamic from "next/dynamic";
+import remarkGfm from "remark-gfm";
+import React from "react";
 import prisma from "@/lib/db";
 import { Post } from "@prisma/client";
-import remarkGfm from "remark-gfm";
+import BlurImage from "@/components/image/image";
 
 const MermaidDiagram = dynamic(() => import("@/components/MermaidDiagram"), {
   ssr: false,
@@ -66,9 +67,22 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
     <h2 className="text-2xl font-semibold mb-3 text-gray-800">{children}</h2>
   ),
   // ... (other heading components)
-  p: ({ children }: { children: React.ReactNode }) => (
-    <p className="mb-4 text-gray-700 leading-relaxed">{children}</p>
-  ),
+  p: ({ children }: { children: React.ReactNode }) => {
+    if (
+      React.Children.count(children) === 1 &&
+      React.isValidElement(children)
+    ) {
+      const child = children as React.ReactElement;
+      if (
+        child.type === "img" ||
+        child.type === MarkdownComponents.img ||
+        (typeof child.type === "function" && child.type.name === "img")
+      ) {
+        return <>{children}</>;
+      }
+    }
+    return <p className="mb-4 text-gray-700 leading-relaxed">{children}</p>;
+  },
 
   h3: ({ children }) => (
     <h3 className="text-xl font-semibold mb-2 text-gray-700">{children}</h3>
@@ -131,15 +145,64 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
     </a>
   ),
 
-  img: ({ src, alt }: ImageProps) => (
-    <Image
-      src={src || ""}
-      alt={alt || ""}
-      width={600}
-      height={400}
-      className="mx-auto my-4 rounded-lg shadow-md"
-    />
-  ),
+  img: ({ src, alt }: ImageProps) => {
+    // Check if the source is a video link
+    const isYouTubeVideo =
+      src?.includes("youtube.com") || src?.includes("youtu.be");
+    const isVimeoVideo = src?.includes("vimeo.com");
+    const isCustomVideo =
+      src?.startsWith("https://r2.aliahad.com") &&
+      (src?.endsWith(".mp4") ||
+        src?.endsWith(".webm") ||
+        src?.endsWith(".ogg"));
+
+    if (isYouTubeVideo) {
+      const videoId = src?.includes("youtube.com")
+        ? src.split("v=")[1]
+        : src?.split("/").pop();
+      return (
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={alt || "YouTube video player"}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full aspect-video my-4"
+        ></iframe>
+      );
+    } else if (isVimeoVideo) {
+      const videoId = src?.split("/").pop();
+      return (
+        <iframe
+          src={`https://player.vimeo.com/video/${videoId}`}
+          title={alt || "Vimeo video player"}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          className="w-full aspect-video my-4"
+        ></iframe>
+      );
+    } else if (isCustomVideo) {
+      return (
+        <video
+          src={src}
+          controls
+          className="w-full aspect-video my-4"
+          title={alt || "Custom video player"}
+        >
+          Your browser does not support the video tag.
+        </video>
+      );
+    } else {
+      return (
+        <BlurImage
+          src={src || ""}
+          alt={alt || ""}
+          width={600}
+          height={400}
+          className="mx-auto my-4 rounded-lg shadow-md"
+        />
+      );
+    }
+  },
   hr: () => <hr className="my-8 border-t border-gray-200" />,
   mermaid: ({ node }) => {
     const chart = node.value;

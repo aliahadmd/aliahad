@@ -1,5 +1,5 @@
 import prisma from "@/lib/db";
-import Image from "next/image";
+import BlurImage from "@/components/image/image";
 
 
 export default async function ProjectList() {
@@ -13,7 +13,7 @@ export default async function ProjectList() {
           className="border rounded-lg overflow-hidden"
         >
           {project.imageUrl && (
-            <Image
+            <BlurImage
               src={project.imageUrl}
               alt={project.title}
               width={400}

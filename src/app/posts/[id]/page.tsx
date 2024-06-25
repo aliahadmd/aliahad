@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -11,9 +10,9 @@ import "katex/dist/katex.min.css";
 import dynamic from "next/dynamic";
 import remarkGfm from "remark-gfm";
 import React from "react";
-import ReactPlayer from "react-player/lazy";
 import prisma from "@/lib/db";
 import { Post } from "@prisma/client";
+import BlurImage from "@/components/image/image";
 
 const MermaidDiagram = dynamic(() => import("@/components/MermaidDiagram"), {
   ssr: false,
@@ -195,7 +194,7 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
       );
     } else {
       return (
-        <Image
+        <BlurImage
           src={src || ""}
           alt={alt || ""}
           width={600}
