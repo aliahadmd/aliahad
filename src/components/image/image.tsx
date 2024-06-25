@@ -28,12 +28,16 @@ const BlurImage = (props: ImageProps) => {
 
   return (
     <div
-      className={cn("overflow-hidden", isLoading && "animate-pulse", className)}
+      className={cn(
+        "overflow-hidden flex justify-center",
+        isLoading && "animate-pulse",
+        className
+      )}
       data-testid="image-container"
     >
       <Image
         className={cn(
-          "transition-[scale,filter] duration-700",
+          "transition-[scale,filter] duration-700 rounded-md",
           isLoading && "scale-[1.02] blur-xl grayscale",
           imageClassName
         )}
