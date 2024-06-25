@@ -6,7 +6,7 @@ import "katex/dist/katex.min.css";
 import dynamic from "next/dynamic";
 
 import React from "react";
-import BlurImage from "@/components/image/image";
+import Image from "next/image";
 
 const MermaidDiagram = dynamic(() => import("@/components/MermaidDiagram"), {
   ssr: false,
@@ -187,12 +187,12 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
       );
     } else {
       return (
-        <BlurImage
+        <Image
           src={src || ""}
           alt={alt || ""}
           width={600}
           height={400}
-          className="mx-auto my-4"
+          className="mx-auto my-4 rounded-lg shadow-md"
         />
       );
     }
