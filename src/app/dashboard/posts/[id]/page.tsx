@@ -10,9 +10,9 @@ import "katex/dist/katex.min.css";
 import dynamic from "next/dynamic";
 import remarkGfm from "remark-gfm";
 import React from "react";
+import Image from "next/image";
 import prisma from "@/lib/db";
 import { Post } from "@prisma/client";
-import BlurImage from "@/components/image/image";
 
 const MermaidDiagram = dynamic(() => import("@/components/MermaidDiagram"), {
   ssr: false,
@@ -193,7 +193,7 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
       );
     } else {
       return (
-        <BlurImage
+        <Image
           src={src || ""}
           alt={alt || ""}
           width={600}
