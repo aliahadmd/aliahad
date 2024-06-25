@@ -1,6 +1,6 @@
 import React from "react";
 import { User, Mail, Github, Linkedin, FileText } from "lucide-react";
-import Image from "next/image";
+import BlurImage from "@/components/image/image";
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <div className="max-w-4xl mx-auto overflow-hidden">
         <div className="md:flex">
           <div className="md:flex-shrink-0">
-            <Image
+            <BlurImage
               className="h-48 w-full object-cover md:w-48"
               src="/images/ali.png"
               alt="Profile"
