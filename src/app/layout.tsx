@@ -5,6 +5,9 @@ import Container from "@/components/container";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react";
+import "katex/dist/katex.min.css";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 const merriweather = Merriweather({
