@@ -34,7 +34,7 @@ const Home = () => {
         <div className="px-8 py-6 bg-gray-50">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">About Me</h2>
           <p className="text-gray-600 mb-4">
-            With over 5 years of experience in software development, I&apos;ve
+            With over 6 years of experience in software development, I&apos;ve
             worked on a variety of projects ranging from e-commerce platforms to
             data visualization tools. I&apos;m constantly learning and exploring
             new technologies to stay at the forefront of the ever-evolving tech
