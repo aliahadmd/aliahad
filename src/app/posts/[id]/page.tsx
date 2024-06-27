@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import { getPost, PostContent } from "@/components/getpost";
 import { format } from "date-fns";
 
-import "katex/dist/katex.min.css";
-import React from "react";
+
 
 export default async function Page({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
