@@ -1,3 +1,4 @@
+// src/components/getpost.tsx
 import MarkdownComponents from "@/components/markdownComponents";
 import prisma from "@/lib/db";
 import { Post } from "@prisma/client";
@@ -7,11 +8,12 @@ import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import { Suspense } from "react";
 
-async function getPost(id: string): Promise<Post | null> {
+async function getPostBySlug(slug: string): Promise<Post | null> {
   return await prisma.post.findUnique({
-    where: { id: parseInt(id) },
+    where: { slug: slug },
   });
 }
+
 
 function PostContent({ post }: { post: Post }) {
   return (
@@ -27,4 +29,4 @@ function PostContent({ post }: { post: Post }) {
   );
 }
 
-export { getPost, PostContent };
+export { getPostBySlug, PostContent };

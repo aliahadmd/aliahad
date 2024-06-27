@@ -13,11 +13,13 @@ datasource db {
 
 model Post {
   id        Int      @id @default(autoincrement())
+  slug      String   @unique
   title     String
   body      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 
 model Project {
   id          Int      @id @default(autoincrement())

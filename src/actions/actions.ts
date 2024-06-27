@@ -5,8 +5,17 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+// Add this function to generate slug
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export async function createPost(formData: FormData) {
-  // auth check
   const { isAuthenticated } = getKindeServerSession();
   if (!(await isAuthenticated())) {
     redirect("/api/auth/login");
@@ -15,29 +24,33 @@ export async function createPost(formData: FormData) {
   const title = formData.get("title") as string;
   const body = formData.get("body") as string;
 
+  let slug = generateSlug(title);
+
+  // Ensure slug uniqueness
+  let count = 0;
+  while (await prisma.post.findUnique({ where: { slug } })) {
+    count++;
+    slug = `${generateSlug(title)}-${count}`;
+  }
+
   // update database
   await prisma.post.create({
     data: {
       title,
       body,
+      slug,
     },
   });
 
-  // revalidate
   revalidatePath("/posts");
-
-  // redirect to posts route
-  redirect("/dashboard/posts");
+  redirect(`/posts/${slug}`);
 }
 
-
 export async function deletePost(formData: FormData) {
-  // auth check
   const { isAuthenticated } = getKindeServerSession();
   if (!(await isAuthenticated())) {
     redirect("/api/auth/login");
   }
-
 
   const id = formData.get("id");
 
@@ -49,14 +62,9 @@ export async function deletePost(formData: FormData) {
     where: { id: parseInt(id as string) },
   });
 
-  // revalidate
   revalidatePath("/posts");
-
-  // redirect to posts route
   redirect("/dashboard/posts");
 }
-
-
 
 export async function updatePost(formData: FormData) {
   const { isAuthenticated } = getKindeServerSession();
@@ -65,22 +73,40 @@ export async function updatePost(formData: FormData) {
   }
 
   const id = formData.get("id");
-  const title = formData.get("title");
-  const body = formData.get("body");
+  const title = formData.get("title") as string;
+  const body = formData.get("body") as string;
 
   if (!id || !title || !body) {
     throw new Error("Missing required fields");
   }
 
+  const post = await prisma.post.findUnique({
+    where: { id: parseInt(id as string) },
+  });
+  if (!post) throw new Error("Post not found");
+
+  let newSlug = generateSlug(title);
+
+  // Only update the slug if the title has changed
+  if (newSlug !== post.slug) {
+    let count = 0;
+    while (
+      await prisma.post.findUnique({
+        where: { slug: newSlug, NOT: { id: parseInt(id as string) } },
+      })
+    ) {
+      count++;
+      newSlug = `${generateSlug(title)}-${count}`;
+    }
+  } else {
+    newSlug = post.slug;
+  }
+
   await prisma.post.update({
     where: { id: parseInt(id as string) },
-    data: { title: title as string, body: body as string },
+    data: { title, body, slug: newSlug },
   });
 
-  // revalidate
   revalidatePath("/posts");
-
-  // redirect to post details page
-  redirect(`/posts/${id}`);
+  redirect(`/posts/${newSlug}`);
 }
-

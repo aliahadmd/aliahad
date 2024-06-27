@@ -14,7 +14,7 @@ export default async function PostsList() {
         >
           <div>
             <Link
-              href={`/posts/${post.id}`}
+              href={`/posts/${post.slug}`}
               className="text-sm md:text-2xl font-bold hover:underline "
             >
               {post.title}
