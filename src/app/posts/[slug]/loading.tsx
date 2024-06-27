@@ -1,9 +1,9 @@
-import Skeleton from "@/components/skeleton";
+import Spinner from "@/components/spinner";
 
 export default function Loading() {
   return (
     <>
-    <Skeleton />
+      <Spinner />
     </>
   );
 }
