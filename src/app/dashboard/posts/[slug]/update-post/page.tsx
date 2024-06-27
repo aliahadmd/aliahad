@@ -1,12 +1,12 @@
-// app/posts/[id]/edit/page.tsx
+// app/posts/[slug]/edit/page.tsx
 import { notFound } from "next/navigation";
 import prisma from "@/lib/db";
 import { updatePost, deletePost } from "@/actions/actions";
 
-async function getPost(id: number) {
+async function getPost(slug: string) {
   const post = await prisma.post.findUnique({
     where: {
-      id: id,
+      slug: slug,
     },
   });
 
@@ -18,16 +18,16 @@ async function getPost(id: number) {
 export default async function PostEditPage({
   params,
 }: {
-  params: { id: string };
+  params: { slug: string };
 }) {
-  const post = await getPost(parseInt(params.id));
+  const post = await getPost(params.slug);
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Edit Post</h1>
 
       <form action={updatePost} className="flex flex-col gap-4">
-        <input type="hidden" name="id" value={post.id} />
+        <input type="hidden" name="slug" value={post.slug} />
 
         <div>
           <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
@@ -63,7 +63,7 @@ export default async function PostEditPage({
       </form>
 
       <form action={deletePost} className="mt-4">
-        <input type="hidden" name="id" value={post.id} />
+        <input type="hidden" name="slug" value={post.slug} />
         <button
           type="submit"
           className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
