@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${merriweather.className} bg-[#fafaf8] text-zinc-900 min-h-screen`}
       >
@@ -41,3 +41,4 @@ export default function RootLayout({
     </html>
   );
 }
+
