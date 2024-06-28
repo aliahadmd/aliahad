@@ -53,19 +53,21 @@ export async function deletePost(formData: FormData) {
     redirect("/api/auth/login");
   }
 
-  const id = formData.get("id");
+  const slug = formData.get("slug");
 
-  if (!id) {
-    throw new Error("Post ID is required");
+  if (!slug || typeof slug !== "string") {
+    throw new Error("Post slug is required");
   }
 
   await prisma.post.delete({
-    where: { id: parseInt(id as string) },
+    where: { slug: slug },
   });
 
   revalidatePath("/posts");
+  revalidatePath("/dashboard/posts");
   redirect("/dashboard/posts");
 }
+
 
 export async function updatePost(formData: FormData) {
   const { isAuthenticated } = getKindeServerSession();
