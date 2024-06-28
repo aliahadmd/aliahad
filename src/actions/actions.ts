@@ -43,6 +43,7 @@ export async function createPost(formData: FormData) {
   });
 
   revalidatePath("/posts");
+  revalidatePath("/dashboard/posts");
   redirect(`/posts/${slug}`);
 }
 
