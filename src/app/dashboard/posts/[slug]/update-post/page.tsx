@@ -28,6 +28,7 @@ export default async function PostEditPage({
 
       <form action={updatePost} className="flex flex-col gap-4">
         <input type="hidden" name="slug" value={post.slug} />
+        <input type="hidden" name="id" value={post.id} />
 
         <div>
           <label htmlFor="title" className="block text-gray-700 font-bold mb-2">

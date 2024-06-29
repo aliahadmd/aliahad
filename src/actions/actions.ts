@@ -75,41 +75,74 @@ export async function updatePost(formData: FormData) {
     redirect("/api/auth/login");
   }
 
+  console.log("Form data received:", Object.fromEntries(formData));
+
   const id = formData.get("id");
-  const title = formData.get("title") as string;
-  const body = formData.get("body") as string;
+  const title = formData.get("title");
+  const body = formData.get("body");
 
-  if (!id || !title || !body) {
-    throw new Error("Missing required fields");
+  console.log("ID:", id);
+  console.log("Title:", title);
+  console.log("Body:", body);
+
+  if (!id || typeof id !== "string") {
+    throw new Error("Invalid or missing post ID");
   }
 
-  const post = await prisma.post.findUnique({
-    where: { id: parseInt(id as string) },
-  });
-  if (!post) throw new Error("Post not found");
+  const postId = parseInt(id, 10);
+  if (isNaN(postId)) {
+    throw new Error("Invalid post ID format");
+  }
 
-  let newSlug = generateSlug(title);
+  if (!title || typeof title !== "string" || title.trim() === "") {
+    throw new Error("Invalid or missing post title");
+  }
+  if (!body || typeof body !== "string" || body.trim() === "") {
+    throw new Error("Invalid or missing post body");
+  }
 
-  // Only update the slug if the title has changed
-  if (newSlug !== post.slug) {
-    let count = 0;
-    while (
-      await prisma.post.findUnique({
-        where: { slug: newSlug, NOT: { id: parseInt(id as string) } },
-      })
-    ) {
-      count++;
-      newSlug = `${generateSlug(title)}-${count}`;
+  try {
+    const post = await prisma.post.findUnique({
+      where: { id: postId },
+    });
+    if (!post) {
+      throw new Error("Post not found");
     }
-  } else {
-    newSlug = post.slug;
+
+    let newSlug = generateSlug(title);
+
+    // Only update the slug if the title has changed
+    if (newSlug !== post.slug) {
+      let count = 0;
+      while (
+        await prisma.post.findUnique({
+          where: { slug: newSlug, NOT: { id: postId } },
+        })
+      ) {
+        count++;
+        newSlug = `${generateSlug(title)}-${count}`;
+      }
+    } else {
+      newSlug = post.slug;
+    }
+
+    const updatedPost = await prisma.post.update({
+      where: { id: postId },
+      data: { title, body, slug: newSlug },
+    });
+
+    console.log("Post updated successfully:", updatedPost);
+
+    revalidatePath("/posts");
+    revalidatePath("/dashboard/posts");
+
+    // Instead of redirecting, return the new slug
+    return { success: true, newSlug };
+  } catch (error) {
+    console.error("Error updating post:", error);
+    return {
+      success: false,
+      error: "Failed to update post. Please try again.",
+    };
   }
-
-  await prisma.post.update({
-    where: { id: parseInt(id as string) },
-    data: { title, body, slug: newSlug },
-  });
-
-  revalidatePath("/posts");
-  redirect(`/posts/${newSlug}`);
 }
