@@ -54,6 +54,8 @@ const Home = () => {
               "TypeScript",
               "C/C++",
               "Python",
+              "PHP",
+              "Golang",
               "SQL",
               "Pytorch",
               "Git",
@@ -73,28 +75,30 @@ const Home = () => {
         <div className="px-8 py-6 bg-gray-50">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact</h2>
           <div className="space-y-4">
-            <p className="flex items-center text-gray-600">
+            <a href="mailto:ali@aliahad.com" className="flex items-center text-gray-600">
               <Mail className="h-5 w-5 mr-2 text-gray-400" /> ali@aliahad.com
-            </p>
-            <p className="flex items-center text-gray-600">
+            </a>
+            <a href="https://github.com/aliahadmd" className="flex items-center text-gray-600">
               <Github className="h-5 w-5 mr-2 text-gray-400" />{" "}
               github.com/aliahadmd
-            </p>
-            <p className="flex items-center text-gray-600">
+            </a>
+            <a href="https://linkedin.com/in/aliahadmd" className="flex items-center text-gray-600">
               <Linkedin className="h-5 w-5 mr-2 text-gray-400" />{" "}
               linkedin.com/in/aliahadmd
-            </p>
+            </a>
           </div>
         </div>
 
         <div className="px-8 py-6">
           <a
-            href="#"
+            href="/pdf/MD_AHAD_ALI_4.pdf"
             className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             <FileText className="h-5 w-5 mr-2" />
-            Download Resume
+            Download/View Resume
           </a>
+          <br />
+        <span className="text-xs">updated at: 06/09/2024 </span>
         </div>
       </div>
     </div>
