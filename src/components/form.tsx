@@ -1,10 +1,22 @@
+'use client'
+
 import { createPost } from "@/actions/actions";
-import React from "react";
+import React, { useState, useTransition } from "react";
 
 export default function Form() {
+  const [isPending, startTransition] = useTransition();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (formData: FormData) => {
+    setIsSubmitting(true);
+    startTransition(async () => {
+      await createPost(formData);
+    });
+  };
+
   return (
     <form
-      action={createPost}
+      action={handleSubmit}
       className="flex flex-col px-5 mx-auto gap-2 my-10"
     >
       <input
@@ -21,8 +33,19 @@ export default function Form() {
         rows={6}
         required
       />
-      <button className="h-10 bg-blue-500 px-5 rounded text-white">
-        Submit
+      <button
+        type="submit"
+        className="h-10 bg-blue-500 px-5 rounded text-white flex items-center justify-center"
+        disabled={isSubmitting || isPending}
+      >
+        {isSubmitting || isPending ? (
+          <>
+            <span className="animate-spin inline-block w-4 h-4 border-t-2 border-white rounded-full mr-2"></span>
+            Submitting...
+          </>
+        ) : (
+          'Submit'
+        )}
       </button>
     </form>
   );
