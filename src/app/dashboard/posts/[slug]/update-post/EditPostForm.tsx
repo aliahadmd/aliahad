@@ -1,11 +1,11 @@
 "use client";
-
+import { Post } from "@prisma/client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { updatePost, deletePost } from "@/actions/actions";
 import Spinner from "@/components/spinner";
 
-export default function EditPostForm({ post }) {
+export default function EditPostForm({ post }: { post: Post }) {
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const router = useRouter();

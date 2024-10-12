@@ -1,4 +1,10 @@
-function Spinner() {
+import React from 'react';
+
+interface SpinnerProps {
+  className?: string;
+}
+
+const Spinner: React.FC<SpinnerProps> = ({ className }) => {
   return (
     <>
       <div
