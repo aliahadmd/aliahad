@@ -1,7 +1,6 @@
 import prisma from "@/lib/db";
 import Image from "next/image";
 
-
 export default async function ProjectList() {
   const projects = await prisma.project.findMany();
 
@@ -10,7 +9,7 @@ export default async function ProjectList() {
       {projects.map((project) => (
         <div
           key={project.id}
-          className="border rounded-lg overflow-hidden"
+          className="border dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-md"
         >
           {project.imageUrl && (
             <Image
@@ -22,15 +21,19 @@ export default async function ProjectList() {
             />
           )}
           <div className="p-4">
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-            <p className="text-gray-600 mb-4">{project.description}</p>
+            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              {project.description}
+            </p>
             <div className="flex justify-between">
               {project.projectUrl && (
                 <a
                   href={project.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-500 dark:text-blue-400 hover:underline"
                 >
                   View Project
                 </a>
@@ -40,7 +43,7 @@ export default async function ProjectList() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-500 dark:text-blue-400 hover:underline"
                 >
                   GitHub
                 </a>

@@ -12,13 +12,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <article className="max-w-3xl mx-auto overflow-hidden">
         <div className="px-6 py-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-6 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             {post.title}
           </h1>
-          <div className="flex justify-center items-center space-x-4 text-sm text-gray-600 mb-8">
+          <div className="flex justify-center items-center space-x-4 text-sm text-gray-600 dark:text-gray-400 mb-8">
             <p>
               Published: {format(new Date(post.createdAt), "MMMM dd, yyyy")}
             </p>
@@ -27,8 +27,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
               Last Updated: {format(new Date(post.updatedAt), "MMMM dd, yyyy")}
             </p>
           </div>
-          <div className="prose prose-lg max-w-none">
-            <Suspense fallback="Loading...">
+          <div className="prose prose-lg dark:prose-invert max-w-none">
+            <Suspense fallback={<div className="text-center text-gray-600 dark:text-gray-400">Loading...</div>}>
               <PostContent post={post} />
             </Suspense>
           </div>

@@ -23,19 +23,19 @@ export default function Form() {
         type="text"
         name="title"
         placeholder="Title for new post"
-        className="border rounded px-3 h-10"
+        className="border dark:border-gray-600 rounded px-3 h-10 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         required
       />
       <textarea
         name="body"
         placeholder="Body content for new post"
-        className="border rounded px-3 py-2"
+        className="border dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         rows={6}
         required
       />
       <button
         type="submit"
-        className="h-10 bg-blue-500 px-5 rounded text-white flex items-center justify-center"
+        className="h-10 bg-blue-500 dark:bg-blue-600 px-5 rounded text-white flex items-center justify-center hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors"
         disabled={isSubmitting || isPending}
       >
         {isSubmitting || isPending ? (

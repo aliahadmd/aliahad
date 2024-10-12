@@ -39,7 +39,7 @@ export default function EditPostForm({ post }) {
         <input type="hidden" name="id" value={post.id} />
 
         <div>
-          <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="title" className="block text-gray-700 dark:text-gray-300 font-bold mb-2">
             Title:
           </label>
           <input
@@ -47,26 +47,26 @@ export default function EditPostForm({ post }) {
             id="title"
             name="title"
             defaultValue={post.title}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline dark:border-gray-600"
           />
         </div>
 
         <div>
-          <label htmlFor="body" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="body" className="block text-gray-700 dark:text-gray-300 font-bold mb-2">
             Body:
           </label>
           <textarea
             id="body"
             name="body"
             defaultValue={post.body}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline dark:border-gray-600"
             rows={10}
           />
         </div>
 
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+          className="bg-blue-500 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
           disabled={isUpdating}
         >
           {isUpdating ? (
@@ -84,7 +84,7 @@ export default function EditPostForm({ post }) {
         <input type="hidden" name="slug" value={post.slug} />
         <button
           type="submit"
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+          className="bg-red-500 hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
           disabled={isDeleting}
         >
           {isDeleting ? (

@@ -10,17 +10,17 @@ export default async function PostsList() {
       {posts.map((post) => (
         <li
           key={post.id}
-          className="flex justify-between items-center p-4 border-b text-left"
+          className="flex justify-between items-center p-4 border-b dark:border-gray-700 text-left"
         >
           <div>
             <Link
               href={`/posts/${post.slug}`}
-              className="text-sm md:text-2xl font-bold hover:underline "
+              className="text-sm md:text-2xl font-bold hover:underline text-gray-900 dark:text-gray-100"
             >
               {post.title}
             </Link>
           </div>
-          <div className="text-gray-600 text-right text-sm">
+          <div className="text-gray-600 dark:text-gray-400 text-right text-sm">
             <p>Published: {format(post.createdAt, "MMMM dd, yyyy")}</p>
             <p>Last Updated: {format(post.updatedAt, "MMMM dd, yyyy")}</p>
           </div>

@@ -1,4 +1,3 @@
-
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
@@ -45,7 +44,7 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
       </SyntaxHighlighter>
     ) : (
       <code
-        className={`${className} text-pink-600 bg-gray-100 rounded px-1`}
+        className={`${className} text-pink-600 dark:text-pink-400 bg-gray-100 dark:bg-gray-800 rounded px-1`}
         {...props}
       >
         {children}
@@ -53,12 +52,12 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
     );
   },
   h1: ({ children }: { children: React.ReactNode }) => (
-    <h1 className="text-3xl font-bold mb-4 text-gray-900 border-b pb-2">
+    <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100 border-b dark:border-gray-700 pb-2">
       {children}
     </h1>
   ),
   h2: ({ children }: { children: React.ReactNode }) => (
-    <h2 className="text-2xl font-semibold mb-3 text-gray-800">{children}</h2>
+    <h2 className="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-200">{children}</h2>
   ),
   // ... (other heading components)
   p: ({ children }: { children: React.ReactNode }) => {
@@ -75,52 +74,52 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
         return <>{children}</>;
       }
     }
-    return <p className="mb-4 text-gray-700 leading-relaxed">{children}</p>;
+    return <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">{children}</p>;
   },
 
   h3: ({ children }) => (
-    <h3 className="text-xl font-semibold mb-2 text-gray-700">{children}</h3>
+    <h3 className="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">{children}</h3>
   ),
   h4: ({ children }) => (
-    <h4 className="text-lg font-semibold mb-2 text-gray-700">{children}</h4>
+    <h4 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-300">{children}</h4>
   ),
   h5: ({ children }) => (
-    <h5 className="text-base font-semibold mb-1 text-gray-700">{children}</h5>
+    <h5 className="text-base font-semibold mb-1 text-gray-700 dark:text-gray-300">{children}</h5>
   ),
   h6: ({ children }) => (
-    <h6 className="text-sm font-semibold mb-1 text-gray-700">{children}</h6>
+    <h6 className="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">{children}</h6>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc pl-6 mb-4 text-gray-700">{children}</ul>
+    <ul className="list-disc pl-6 mb-4 text-gray-700 dark:text-gray-300">{children}</ul>
   ),
   ol: ({ children }) => (
-    <ol className="list-decimal pl-6 mb-4 text-gray-700">{children}</ol>
+    <ol className="list-decimal pl-6 mb-4 text-gray-700 dark:text-gray-300">{children}</ol>
   ),
   li: ({ children }) => <li className="mb-2">{children}</li>,
   blockquote: ({ children }) => (
-    <blockquote className="border-l-4 border-blue-500 pl-4 italic mb-4 bg-blue-50 py-2 text-gray-700">
+    <blockquote className="border-l-4 border-blue-500 pl-4 italic mb-4 bg-blue-50 dark:bg-blue-900 py-2 text-gray-700 dark:text-gray-300">
       {children}
     </blockquote>
   ),
   table: ({ children }) => (
     <div className="overflow-x-auto mb-4">
-      <table className="min-w-full divide-y divide-gray-200 border">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border dark:border-gray-700">
         {children}
       </table>
     </div>
   ),
-  thead: ({ children }) => <thead className="bg-gray-50">{children}</thead>,
+  thead: ({ children }) => <thead className="bg-gray-50 dark:bg-gray-800">{children}</thead>,
   tbody: ({ children }) => (
-    <tbody className="bg-white divide-y divide-gray-200">{children}</tbody>
+    <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">{children}</tbody>
   ),
   tr: ({ children }) => <tr>{children}</tr>,
   th: ({ children }) => (
-    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border">
+    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider border dark:border-gray-700">
       {children}
     </th>
   ),
   td: ({ children }) => (
-    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border">
+    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 border dark:border-gray-700">
       {children}
     </td>
   ),
@@ -128,16 +127,17 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
   // Add this new component
   tableContainer: ({ children }) => (
     <div className="overflow-x-auto mb-4">
-      <table className="min-w-full divide-y divide-gray-200 border">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border dark:border-gray-700">
         {children}
       </table>
     </div>
   ),
   a: ({ children, href }) => (
-    <a href={href} className="text-blue-600 hover:text-blue-800 underline">
+    <a href={href} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline">
       {children}
     </a>
   ),
+
 
   img: ({ src, alt }: ImageProps) => {
     // Check if the source is a video link
@@ -197,16 +197,11 @@ const MarkdownComponents: Record<string, React.FC<any>> = {
       );
     }
   },
-  hr: () => <hr className="my-8 border-t border-gray-200" />,
+  hr: () => <hr className="my-8 border-t border-gray-200 dark:border-gray-700" />,
   mermaid: ({ node }) => {
     const chart = node.value;
     return <MermaidDiagram chart={chart} />;
   },
 };
-
-
-
-
-
 
 export default MarkdownComponents;

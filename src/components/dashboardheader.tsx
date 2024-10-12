@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DarkModeToggle } from "./DarkModeToggle";
+
 
 const navLinks = [
   {
@@ -25,7 +27,7 @@ const navLinks = [
 const DashboardHeader = () => {
   const pathname = usePathname();
   return (
-    <aside className="w-64 bg-white h-screen fixed left-0 top-0 border-r">
+    <aside className="w-64 bg-white dark:bg-gray-800 h-screen fixed left-0 top-0 border-r dark:border-gray-700">
       <nav className="py-4">
         <ul className="space-y-2">
           {navLinks.map((link) => (
@@ -43,7 +45,10 @@ const DashboardHeader = () => {
             </li>
           ))}
         </ul>
-      </nav>
+        </nav>
+      <div className="absolute bottom-4 left-4">
+        <DarkModeToggle />
+      </div>
     </aside>
   );
 };
