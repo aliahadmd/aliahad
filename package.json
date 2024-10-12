@@ -20,7 +20,7 @@
     "katex": "^0.16.10",
     "lucide-react": "^0.396.0",
     "mermaid": "^10.9.1",
-    "next": "14.2.4",
+    "next": "^14.2.15",
     "next-remove-imports": "^1.0.12",
     "next-themes": "^0.3.0",
     "react": "^18",
