@@ -63,6 +63,7 @@ const Home = () => {
               "Docker",
               "Django",
               "React",
+              "Vuejs",
             ].map((skill) => (
               <span
                 key={skill}
