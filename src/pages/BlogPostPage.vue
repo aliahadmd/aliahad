@@ -27,14 +27,48 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import BlogPost from '../components/BlogPost.vue';
-import { loadBlogPost } from '../utils/blog'; // Import the correct function
+import { loadBlogPost } from '../utils/blog';
 
 const route = useRoute();
 const post = ref(null);
 
+const updateMetaTags = (post) => {
+  // Update Open Graph meta tags
+  document.querySelector('meta[property="og:title"]')?.remove();
+  document.querySelector('meta[property="og:description"]')?.remove();
+  document.querySelector('meta[property="og:image"]')?.remove();
+  document.querySelector('meta[property="og:url"]')?.remove();
+  
+  const head = document.head;
+  
+  const title = document.createElement('meta');
+  title.setAttribute('property', 'og:title');
+  title.content = post.title;
+  
+  const description = document.createElement('meta');
+  description.setAttribute('property', 'og:description');
+  description.content = post.excerpt;
+  
+  const image = document.createElement('meta');
+  image.setAttribute('property', 'og:image');
+  image.content = post.image;
+  
+  const url = document.createElement('meta');
+  url.setAttribute('property', 'og:url');
+  url.content = window.location.href;
+  
+  head.appendChild(title);
+  head.appendChild(description);
+  head.appendChild(image);
+  head.appendChild(url);
+}
+
 onMounted(async () => {
   try {
     post.value = await loadBlogPost(route.params.slug);
+    if (post.value) {
+      updateMetaTags(post.value);
+    }
   } catch (error) {
     console.error('Error loading blog post:', error);
   }

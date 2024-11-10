@@ -8,7 +8,7 @@ excerpt: A brief introduction about myself.
 
 
 ### MD Ahad Ali
-[Email](mailto:ali@aliahad.com "Email Me") | [GitHub](https://github.com/aliahadmd "Visit GitHub") | [LinkedIn](https://www.linkedin.com/in/aliahadmd "Visit LinkedIn") | [X](https://x.com/aliahadmd1 "Visit X")
+[Email](mailto:ali@aliahad.com "Email Me") |  [Bluesky](https://bsky.app/profile/aliahad.com "Visit Bsky") | [GitHub](https://github.com/aliahadmd "Visit GitHub") | [LinkedIn](https://www.linkedin.com/in/aliahadmd "Visit LinkedIn") | [X](https://x.com/aliahadmd1 "Visit X")
 
 **Welcome to My Personal Website!**  
 I'm MD Ahad Ali, a passionate and dedicated software engineer from Bangladesh, with a strong foundation in computer science and technology. Graduating from Yunnan University, China, with a Bachelor of Engineering in Computer Science, I've spent years honing my skills in various programming languages, development frameworks, and specialized tools to create meaningful digital solutions.
