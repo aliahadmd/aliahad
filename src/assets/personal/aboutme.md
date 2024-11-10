@@ -1,7 +1,7 @@
 ---
 title: About Me
 date: 2024-09-06  
-image: images/aliaboutme.jpeg
+image: https://pub-e7edf330000b452083606850ff459219.r2.dev/aa.jpg
 excerpt: A brief introduction about myself.
 ---
 
