@@ -7,12 +7,7 @@
         <span class="mx-2">•</span>
         <span>{{ post.readingTime }} min read</span>
       </div>
-      <img 
-        v-if="post.image" 
-        :src="post.image" 
-        :alt="post.title"
-        class="w-full h-[400px object-cover rounded-lg mb-8"
-      />
+      <img v-if="post.image" :src="post.image" :alt="post.title" class="w-full h-[400px object-cover rounded-lg mb-8" />
     </div>
     <BlogPost :content="post.content" />
   </div>
@@ -38,25 +33,31 @@ const updateMetaTags = (post) => {
   document.querySelector('meta[property="og:description"]')?.remove();
   document.querySelector('meta[property="og:image"]')?.remove();
   document.querySelector('meta[property="og:url"]')?.remove();
-  
+
   const head = document.head;
-  
+
   const title = document.createElement('meta');
-  title.setAttribute('property', 'og:title');
+  title.setAttribute('name', 'og:title');
   title.content = post.title;
-  
+
   const description = document.createElement('meta');
-  description.setAttribute('property', 'og:description');
+  description.setAttribute('name', 'og:description');
   description.content = post.excerpt;
-  
+
   const image = document.createElement('meta');
-  image.setAttribute('property', 'og:image');
+  image.setAttribute('name', 'og:image');
   image.content = post.image;
-  
+
   const url = document.createElement('meta');
-  url.setAttribute('property', 'og:url');
+  url.setAttribute('name', 'og:url');
   url.content = window.location.href;
-  
+
+  const type = document.createElement('meta');
+  type.setAttribute('name', 'og:type');
+  type.content = 'article';
+
+
+
   head.appendChild(title);
   head.appendChild(description);
   head.appendChild(image);
