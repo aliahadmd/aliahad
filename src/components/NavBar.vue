@@ -19,7 +19,7 @@
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/aboutme">About Me</router-link></li>
+        <li><router-link to="/note">My Notes</router-link></li>
         <li><router-link to="/portfolio">Portfolio</router-link></li>
       </ul>
     </div>

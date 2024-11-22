@@ -2,12 +2,7 @@
     <div v-if="post" class="max-w-4xl mx-auto">
       <div class="mb-8">
         <h1 class="text-4xl font-bold mb-4">{{ post.title }}</h1>
-        <img 
-          v-if="post.image" 
-          :src="post.image" 
-          :alt="post.title"
-          class="w-full h-[400px] object-cover rounded-lg mb-8"
-        />
+        <img v-if="post.image" :src="post.image" :alt="post.title" class="w-full max-h-[400px] object-cover rounded-lg mb-8" />
       </div>
       <BlogPost :content="post.content" />
     </div>

@@ -7,7 +7,7 @@
         <span class="mx-2">•</span>
         <span>{{ post.readingTime }} min read</span>
       </div>
-      <img v-if="post.image" :src="post.image" :alt="post.title" class="w-full h-[400px object-cover rounded-lg mb-8" />
+      <img v-if="post.image" :src="post.image" :alt="post.title" class="w-full max-h-[400px] object-cover rounded-lg mb-8" />
     </div>
     <BlogPost :content="post.content" />
   </div>

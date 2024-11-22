@@ -6,17 +6,17 @@ import PortfolioPage from '../pages/PortfolioPage.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/note',
     name: 'BlogList',
     component: BlogListPage
   },
   {
-    path: '/:slug',
+    path: '/note/:slug',
     name: 'BlogPost',
     component: BlogPostPage
   },
   {
-    path: '/aboutme',
+    path: '/',
     name: 'AboutMe',
     component: AboutMePage
   },
