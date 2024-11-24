@@ -12,3 +12,6 @@ Each project I undertake combines precision, innovation, and user-focused design
 - **[Large Campus Network Design](https://github.com/aliahadmd/Large-Campus-Network-Design)**  
   An advanced network infrastructure model for large campuses, designed with technologies like OSPF and VLANs to ensure high-speed, secure connectivity.
 
+- **[docker-manager](https://github.com/aliahadmd/docker-manager)**  
+  A user-friendly GUI application for managing Docker containers and images on Linux Mint and other Debian-based systems.
+
