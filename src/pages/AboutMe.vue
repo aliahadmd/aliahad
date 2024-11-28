@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import MarkdownRenderer from '../components/MarkdownRenderer.vue';
+import { getMarkdownContent } from '../utils/markdown';
 
 const content = ref('');
 const profileImage = ref('');
@@ -54,10 +55,7 @@ async function loadContent() {
   error.value = null;
   
   try {
-    const response = await fetch('/src/assets/personal/aboutme.md');
-    if (!response.ok) throw new Error('Failed to load content');
-    
-    const text = await response.text();
+    const text = getMarkdownContent('aboutme');
     if (!text.trim()) throw new Error('Content is empty');
     
     const { content: mainContent, image, title: mainTitle, subtitle: mainSubtitle, social: socialLinks } = extractFrontmatter(text);
@@ -71,6 +69,7 @@ async function loadContent() {
     console.log('Final title value:', title.value);
     console.log('Final subtitle value:', subtitle.value);
   } catch (e) {
+    console.error('Error loading content:', e);
     error.value = 'Failed to load content. Please try again later.';
   } finally {
     loading.value = false;

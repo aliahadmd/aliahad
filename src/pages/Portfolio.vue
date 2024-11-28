@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import MarkdownRenderer from '../components/MarkdownRenderer.vue';
+import { getMarkdownContent } from '../utils/markdown';
 
 const content = ref('');
 const error = ref(null);
@@ -8,31 +9,43 @@ const loading = ref(true);
 const title = ref('');
 const subtitle = ref('');
 
-onMounted(async () => {
+function extractFrontmatter(text) {
+  const match = text.match(/^---([\s\S]*?)---\n([\s\S]*)$/);
+  if (!match) return { content: text };
+
+  const frontmatter = match[1];
+  const content = match[2];
+  const titleMatch = frontmatter.match(/title:\s*(.+)$/m);
+  const subtitleMatch = frontmatter.match(/subtitle:\s*(.+)$/m);
+  
+  return {
+    content: content.trim(),
+    title: titleMatch ? titleMatch[1].replace(/^["']|["']$/g, '').trim() : '',
+    subtitle: subtitleMatch ? subtitleMatch[1].replace(/^["']|["']$/g, '').trim() : ''
+  };
+}
+
+async function loadContent() {
+  loading.value = true;
+  error.value = null;
+  
   try {
-    const response = await fetch('/src/assets/personal/portfolio.md');
-    const text = await response.text();
+    const text = getMarkdownContent('portfolio');
+    if (!text.trim()) throw new Error('Content is empty');
     
-    // Extract frontmatter
-    const match = text.match(/^---([\s\S]*?)---\n([\s\S]*)$/);
-    if (match) {
-      const frontmatter = match[1];
-      const titleMatch = frontmatter.match(/title:\s*(.+?)(\n|$)/);
-      const subtitleMatch = frontmatter.match(/subtitle:\s*(.+?)(\n|$)/);
-      
-      title.value = titleMatch ? titleMatch[1].trim() : '';
-      subtitle.value = subtitleMatch ? subtitleMatch[1].trim() : '';
-      content.value = match[2].trim();
-    } else {
-      content.value = text;
-    }
-  } catch (err) {
+    const { content: mainContent, title: mainTitle, subtitle: mainSubtitle } = extractFrontmatter(text);
+    content.value = mainContent;
+    title.value = mainTitle;
+    subtitle.value = mainSubtitle;
+  } catch (e) {
+    console.error('Error loading portfolio content:', e);
     error.value = 'Failed to load portfolio content';
-    console.error('Error loading portfolio content:', err);
   } finally {
     loading.value = false;
   }
-});
+}
+
+onMounted(loadContent);
 </script>
 
 <template>
@@ -50,7 +63,7 @@ onMounted(async () => {
         
         <div class="grid gap-8 md:grid-cols-2">
           <div v-for="i in 4" :key="i" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 animate-pulse">
-            <div class="h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4"></div>
+            <div class="h-40 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
             <div class="space-y-3">
               <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
               <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
@@ -60,17 +73,14 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div v-else-if="content" class="space-y-8">
-        <div class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+      <div v-else class="bg-white dark:bg-gray-800 rounded-lg shadow-md">
+        <div class="p-8">
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2 font-geist">
             {{ title }}
           </h1>
-          <p class="text-xl text-gray-600 dark:text-gray-400">
+          <p class="text-gray-600 dark:text-gray-400 mb-8 font-geist">
             {{ subtitle }}
           </p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
           <MarkdownRenderer :content="content" />
         </div>
       </div>
