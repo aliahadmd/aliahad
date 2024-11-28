@@ -1,13 +1,54 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import MarkdownRenderer from '../components/MarkdownRenderer.vue';
 import { getNoteBySlug } from '../utils/notes';
+import { usePageMeta } from '../composables/usePageMeta';
 
 const route = useRoute();
 const note = ref(null);
 const error = ref(null);
 const loading = ref(true);
+
+// Computed properties for meta tags
+const title = computed(() => note.value?.title || '');
+const description = computed(() => note.value?.excerpt || '');
+const image = computed(() => note.value?.image || '');
+const date = computed(() => note.value?.date || '');
+
+// Structured data for the article
+const structuredData = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title.value,
+  description: description.value,
+  image: image.value ? [image.value] : undefined,
+  datePublished: date.value,
+  dateModified: date.value,
+  author: {
+    '@type': 'Person',
+    name: 'Ali Ahad',
+    url: 'https://aliahad.com'
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Ali Ahad',
+    url: 'https://aliahad.com'
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://aliahad.com/notes/${route.params.slug}`
+  }
+}));
+
+// Set up meta tags
+usePageMeta({
+  title,
+  subtitle: description,
+  image,
+  type: 'article',
+  structuredData
+});
 
 async function loadNote() {
   loading.value = true;
