@@ -11,6 +11,7 @@
   "dependencies": {
     "@mermaid-js/mermaid-cli": "^11.4.0",
     "@tailwindcss/typography": "^0.5.15",
+    "@vueuse/head": "^2.0.0",
     "create-cloudflare": "^2.32.0",
     "date-fns": "^4.1.0",
     "dompurify": "^3.1.7",
@@ -29,6 +30,7 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.4"
   }

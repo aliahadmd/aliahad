@@ -1,13 +1,15 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import MarkdownRenderer from '../components/MarkdownRenderer.vue';
 import { getMarkdownContent } from '../utils/markdown';
+import { usePageMeta } from '../composables/usePageMeta';
 
 const content = ref('');
 const error = ref(null);
 const loading = ref(true);
 const title = ref('');
 const subtitle = ref('');
+const projects = ref([]);
 
 function extractFrontmatter(text) {
   const match = text.match(/^---([\s\S]*?)---\n([\s\S]*)$/);
@@ -25,6 +27,39 @@ function extractFrontmatter(text) {
   };
 }
 
+// Extract projects from markdown content
+function extractProjects(content) {
+  const projectRegex = /##\s+(.+?)\n([\s\S]+?)(?=##|$)/g;
+  const projects = [];
+  let match;
+
+  while ((match = projectRegex.exec(content)) !== null) {
+    const title = match[1].trim();
+    const details = match[2].trim();
+    
+    // Extract description (first paragraph after title)
+    const description = details.match(/^(?!#)(.+?)(?=\n|$)/)?.[1]?.trim() || '';
+    
+    // Extract technologies (look for common tech keywords)
+    const techKeywords = ['JavaScript', 'Python', 'Vue', 'React', 'Node.js', 'TypeScript', 'AI', 'Machine Learning'];
+    const technologies = techKeywords.filter(tech => 
+      new RegExp(`\\b${tech}\\b`, 'i').test(details)
+    );
+    
+    // Extract URL if present
+    const url = details.match(/\[.*?\]\((https?:\/\/[^\s\)]+)\)/)?.[1] || '';
+
+    projects.push({
+      title,
+      description,
+      technologies,
+      url
+    });
+  }
+  
+  return projects;
+}
+
 async function loadContent() {
   loading.value = true;
   error.value = null;
@@ -37,6 +72,9 @@ async function loadContent() {
     content.value = mainContent;
     title.value = mainTitle;
     subtitle.value = mainSubtitle;
+    
+    // Extract projects from the content
+    projects.value = extractProjects(mainContent);
   } catch (e) {
     console.error('Error loading portfolio content:', e);
     error.value = 'Failed to load portfolio content';
@@ -44,6 +82,47 @@ async function loadContent() {
     loading.value = false;
   }
 }
+
+// Structured data for SEO
+const structuredData = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title.value,
+  description: subtitle.value,
+  author: {
+    '@type': 'Person',
+    name: 'Ali Ahad',
+    sameAs: [
+      'https://github.com/aliahad',  // Replace with your actual GitHub URL
+      'https://linkedin.com/in/aliahad'  // Replace with your actual LinkedIn URL
+    ]
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: projects.value.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'SoftwareSourceCode',
+        name: project.title,
+        description: project.description,
+        programmingLanguage: project.technologies,
+        url: project.url || undefined,
+        author: {
+          '@type': 'Person',
+          name: 'Ali Ahad'
+        }
+      }
+    }))
+  }
+}));
+
+usePageMeta({
+  title,
+  subtitle,
+  type: 'website',
+  structuredData
+});
 
 onMounted(loadContent);
 </script>

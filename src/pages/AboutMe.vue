@@ -1,20 +1,20 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed, watch, watchEffect } from 'vue';
 import MarkdownRenderer from '../components/MarkdownRenderer.vue';
 import { getMarkdownContent } from '../utils/markdown';
+import { usePageMeta } from '../composables/usePageMeta';
 
 const content = ref('');
-const profileImage = ref('');
 const error = ref(null);
 const loading = ref(true);
 const title = ref('');
 const subtitle = ref('');
+const profileImage = ref('');
 const social = ref({
   email: '',
   bluesky: '',
   github: '',
-  linkedin: '',
-  x: ''
+  linkedin: ''
 });
 
 function extractFrontmatter(text) {
@@ -75,6 +75,29 @@ async function loadContent() {
     loading.value = false;
   }
 }
+
+// Structured data for SEO
+const structuredData = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: title.value,
+  description: subtitle.value,
+  image: profileImage.value,
+  email: social.value.email,
+  sameAs: [
+    social.value.github,
+    social.value.linkedin,
+    social.value.bluesky
+  ].filter(Boolean)
+}));
+
+usePageMeta({
+  title,
+  subtitle,
+  image: profileImage,
+  type: 'profile',
+  structuredData
+});
 
 onMounted(loadContent);
 </script>
