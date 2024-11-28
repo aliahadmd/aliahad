@@ -20,16 +20,16 @@
     "markdown-it-prism": "^2.3.0",
     "marked": "^15.0.0",
     "mermaid": "^11.4.0",
+    "pinia": "^2.2.7",
     "prismjs": "^1.29.0",
-    "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.14",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
-    "vite": "^5.4.10"
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.4"
   }
 }

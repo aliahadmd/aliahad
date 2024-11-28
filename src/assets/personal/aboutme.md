@@ -1,14 +1,19 @@
 ---
-title: About Me
+title: Md Ahad Ali
+subtitle: Artificial Intelligence Enthusiast
 date: 2024-09-06  
 image: https://pub-e7edf330000b452083606850ff459219.r2.dev/aa.jpg
 excerpt: A brief introduction about myself.
+social:
+  email: ali@aliahad.com
+  bluesky: bsky.app/profile/aliahad.com
+  github: github.com/aliahadmd
+  linkedin: linkedin.com/in/aliahadmd
 ---
 
 
 
-### MD Ahad Ali
-[Email](mailto:ali@aliahad.com "Email Me") |  [Bluesky](https://bsky.app/profile/aliahad.com "Visit Bsky") | [GitHub](https://github.com/aliahadmd "Visit GitHub") | [LinkedIn](https://www.linkedin.com/in/aliahadmd "Visit LinkedIn") | [X](https://x.com/aliahadmd1 "Visit X")
+
 
 **Welcome to My Personal Website!**  
 I'm MD Ahad Ali, a passionate and dedicated software engineer from Bangladesh, with a strong foundation in computer science and technology. Graduating from Yunnan University, China, with a Bachelor of Engineering in Computer Science, I've spent years honing my skills in various programming languages, development frameworks, and specialized tools to create meaningful digital solutions.
@@ -32,4 +37,3 @@ I’ve been honored with awards like the TAETEA International Student Scholarshi
 ### Let's Connect
 
 I’m always excited about new challenges and collaborations. Feel free to explore my work further on GitHub or connect with me on LinkedIn. Let's create something impactful together!
-
