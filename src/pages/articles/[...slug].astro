@@ -17,12 +17,12 @@ const { Content } = await article.render();
 <Layout title={`${article.data.title} - Ahad Ali`} description={article.data.description}>
   <article class="max-w-2xl mx-auto prose dark:prose-invert">
     <h1>{article.data.title}</h1>
-    <div class="flex gap-4 text-gray-600 dark:text-gray-400 mb-8">
+    <div class="flex gap-4 text-gray-600 dark:text-neutral-400 mb-8">
       <time>{new Date(article.data.publishDate).toLocaleDateString()}</time>
       {article.data.tags && (
         <div class="flex gap-2">
           {article.data.tags.map(tag => (
-            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-sm">
+            <span class="px-2 py-1 bg-gray-100 dark:bg-neutral-800 rounded text-sm">
               {tag}
             </span>
           ))}
